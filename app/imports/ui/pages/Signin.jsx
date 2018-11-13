@@ -53,30 +53,31 @@ class Signin extends React.Component {
                   <Header  as="h2" textAlign="center">
                       Login to your account
                   </Header>
-
-                <Form className = "login-font" onSubmit={this.handleSubmit}>
-                  <Segment stacked>
-                    <Form.Input
-                        label="Email"
-                        icon="user"
-                        iconPosition="left"
-                        name="email"
-                        type="email"
-                        placeholder="E-mail address"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Input
-                        label="Password"
-                        icon="lock"
-                        iconPosition="left"
-                        name="password"
-                        placeholder="Password"
-                        type="password"
-                        onChange={this.handleChange}
-                    />
-                    <Form.Button content="Submit"/>
-                  </Segment>
-                </Form>
+                <div className = "login-font">
+                  <Form onSubmit={this.handleSubmit}>
+                    <Segment basic>
+                      <Form.Input transparent
+                          label="Email Address"
+                          icon="user"
+                          iconPosition="left"
+                          name="email"
+                          type="email"
+                          placeholder="E-mail address"
+                          onChange={this.handleChange}
+                      />
+                      <Form.Input transparent
+                          label="Password"
+                          icon="lock"
+                          iconPosition="left"
+                          name="password"
+                          placeholder="Password"
+                          type="password"
+                          onChange={this.handleChange}
+                      />
+                      <Form.Button basic content="Submit"/>
+                    </Segment>
+                  </Form>
+                </div>
                 <Message>
                   <Link to="/signup">
                     <div className = "login-font">
