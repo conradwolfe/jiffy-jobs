@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
 /**
@@ -37,14 +37,32 @@ export default class Signup extends React.Component {
   /** Display the signup form. */
   render() {
     return (
+        <div className = "signup-background">
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
-                Register your account
+                Create a new account
               </Header>
               <Form onSubmit={this.handleSubmit}>
-                <Segment stacked>
+                  <Form.Group>
+                  <Form.Input
+                      label="Name"
+                      name="name"
+                      type="name"
+                      placeholder="Name"
+                      onChange={this.handleChange}
+                  />
+                  <Form.Input
+                      label="Username"
+                      name="username"
+                      type="username"
+                      placeholder="Username"
+                      onChange={this.handleChange}
+                  />
+                  </Form.Group>
+
+                  <Form.Group>
                   <Form.Input
                       label="Email"
                       icon="user"
@@ -63,8 +81,48 @@ export default class Signup extends React.Component {
                       type="password"
                       onChange={this.handleChange}
                   />
-                  <Form.Button content="Submit"/>
-                </Segment>
+                  </Form.Group>
+
+                <Form.Group>
+                  <Form.Input
+                      label="Picture"
+                      name="picture"
+                      placeholder="Add an image URL"
+                      type="picture"
+                      onChange={this.handleChange}
+                  />
+                  <Form.Input
+                      label="Location"
+                      name="location"
+                      placeholder="Location"
+                      type="location"
+                      onChange={this.handleChange}
+                  />
+                </Form.Group>
+
+                  <Form.Group>
+                  <Form.Input
+                      label="Interests"
+                      name="interests"
+                      placeholder="Interests"
+                      type="interest"
+                      onChange={this.handleChange}
+                  />
+                    <Form.Input
+                        label="Additional Links"
+                        name="links"
+                        placeholder="URL"
+                        type="links"
+                        onChange={this.handleChange}
+                    />
+                  </Form.Group>
+
+                <Form.TextArea
+                  label="About You"
+                  placeholder="Tell us more about yourself"
+                />
+
+                  <Form.Button color="black" content="Create your account"/>
               </Form>
               <Message>
                 Already have an account? Login <Link to="/signin">here</Link>
@@ -81,6 +139,7 @@ export default class Signup extends React.Component {
             </Grid.Column>
           </Grid>
         </Container>
+        </div>
     );
   }
 }
