@@ -1,0 +1,9 @@
+.login-font {
+  font-family: 'Montserrat', sans-serif;
+}
+.signin-background {
+  background: #4ca1af; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4ca1af, #c4e0e5); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4ca1af, #c4e0e5);
+  background-size: cover;
+}
