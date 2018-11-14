@@ -51,40 +51,44 @@ class Signin extends React.Component {
             <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
               <Grid.Column>
                   <Header  as="h2" textAlign="center">
+                    <div className = "login-header">
                       Login to your account
+                    </div>
                   </Header>
-                <div className = "login-font">
                   <Form onSubmit={this.handleSubmit}>
                     <Segment basic>
-                      <Form.Input transparent
-                          label="Email Address"
-                          icon="user"
-                          iconPosition="left"
-                          name="email"
-                          type="email"
-                          placeholder="E-mail address"
-                          onChange={this.handleChange}
-                      />
-                      <Form.Input transparent
-                          label="Password"
-                          icon="lock"
-                          iconPosition="left"
-                          name="password"
-                          placeholder="Password"
-                          type="password"
-                          onChange={this.handleChange}
-                      />
-                      <Form.Button basic content="Submit"/>
+                        <hr/>
+                        <Form.Field>
+                          <div className = "login-font">
+                            <label>Email Address</label>
+                          </div>
+                          <Form.Input transparent
+                              icon="user"
+                              iconPosition="left"
+                              name="email"
+                              type="text"
+                              placeholder = 'Email'
+                              onChange={this.handleChange}
+                          />
+                        </Form.Field>
+                        <hr/>
+                        <Form.Field>
+                          <div className = "login-font">
+                            <label>Password</label>
+                          </div>
+                          <Form.Input transparent
+                              icon="lock"
+                              iconPosition="left"
+                              name="password"
+                              placeholder="Password"
+                              type="password"
+                              onChange={this.handleChange}
+                          />
+                        </Form.Field>
+                        <Form.Button centered fluid content="Login"/>
                     </Segment>
                   </Form>
-                </div>
-                <Message>
-                  <Link to="/signup">
-                    <div className = "login-font">
-                      Click here to Register
-                    </div>
-                  </Link>
-                </Message>
+
                 {this.state.error === '' ? (
                     ''
                 ) : (

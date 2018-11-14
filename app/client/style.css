@@ -1,10 +1,29 @@
 .login-font {
   font-family: 'Montserrat', sans-serif;
-  font-color: 'white';
+  color: white;
+}
+.login-header {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 .signin-background {
-  background: #4ca1af; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4ca1af, #c4e0e5); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4ca1af, #c4e0e5);
+  background: #525252;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3d72b4, #525252);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3d72b4, #525252); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: cover;
+}
+/*
+Sets input text to white and montserrat font.
+ */
+input[type=text] {
+  font-family: 'Montserrat', sans-serif !important;
+  color: white !important;
+}
+/*
+Preserves asterisks.
+ */
+input[type=password] {
+  color: white !important;
 }
