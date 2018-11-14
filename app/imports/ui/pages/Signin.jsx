@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Divider } from 'semantic-ui-react';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -57,7 +57,7 @@ class Signin extends React.Component {
                   </Header>
                   <Form onSubmit={this.handleSubmit}>
                     <Segment basic>
-                        <hr/>
+                        <Divider/>
                         <Form.Field>
                           <div className = "login-font">
                             <label>Email Address</label>
@@ -71,7 +71,7 @@ class Signin extends React.Component {
                               onChange={this.handleChange}
                           />
                         </Form.Field>
-                        <hr/>
+                        <Divider/>
                         <Form.Field>
                           <div className = "login-font">
                             <label>Password</label>
