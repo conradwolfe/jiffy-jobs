@@ -66,8 +66,8 @@ class Signin extends React.Component {
                               icon="user"
                               iconPosition="left"
                               name="email"
-                              type="email"
-                              placeholder = 'Email Address'
+                              type="text"
+                              placeholder = 'Email'
                               onChange={this.handleChange}
                           />
                         </Form.Field>

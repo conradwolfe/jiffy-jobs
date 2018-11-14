@@ -9,8 +9,21 @@
   padding-bottom: 70px;
 }
 .signin-background {
-  background: #1c92d2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1c92d2, #f2fcfe);
-  background: linear-gradient(to right, #1c92d2, #f2fcfe);
+  background: #525252;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3d72b4, #525252);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3d72b4, #525252); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: cover;
+}
+/*
+Sets input text to white and montserrat font.
+ */
+input[type=text] {
+  font-family: 'Montserrat', sans-serif !important;
+  color: white !important;
+}
+/*
+Preserves asterisks.
+ */
+input[type=password] {
+  color: white !important;
 }
