@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Container, Form, Grid, Header, Message, Segment, Divider } from 'semantic-ui-react';
+import Footer from '../components/Footer';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -46,61 +47,64 @@ class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-        <div className = "signin-background">
-          <Container>
-            <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-              <Grid.Column>
-                  <Header  as="h2" textAlign="center">
-                    <div className = "login-header">
-                      Login to your account
-                    </div>
-                  </Header>
-                  <Form onSubmit={this.handleSubmit}>
-                    <Segment basic>
-                        <Divider/>
-                        <Form.Field>
-                          <div className = "login-font">
-                            <label>Email Address</label>
-                          </div>
-                          <Form.Input transparent
-                              icon="user"
-                              iconPosition="left"
-                              name="email"
-                              type="text"
-                              placeholder = 'Email'
-                              onChange={this.handleChange}
-                          />
-                        </Form.Field>
-                        <Divider/>
-                        <Form.Field>
-                          <div className = "login-font">
-                            <label>Password</label>
-                          </div>
-                          <Form.Input transparent
-                              icon="lock"
-                              iconPosition="left"
-                              name="password"
-                              placeholder="Password"
-                              type="password"
-                              onChange={this.handleChange}
-                          />
-                        </Form.Field>
-                        <Form.Button centered fluid content="Login"/>
-                    </Segment>
-                  </Form>
-
-                {this.state.error === '' ? (
-                    ''
-                ) : (
-                    <Message
-                        error
-                        header="Login was not successful"
-                        content={this.state.error}
-                    />
-                )}
-              </Grid.Column>
-            </Grid>
-          </Container>
+         <div>
+          <div className = "signin-background">
+            <Container>
+              <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+                <Grid.Column>
+                    <Header  as="h2" textAlign="center">
+                      <div className = "login-header">
+                        Login to your account
+                      </div>
+                    </Header>
+                    <Form onSubmit={this.handleSubmit}>
+                      <Segment basic>
+                          <Divider/>
+                          <Form.Field>
+                            <div className = "login-font">
+                              <label>Email Address</label>
+                            </div>
+                            <Form.Input transparent
+                                icon="user"
+                                iconPosition="left"
+                                name="email"
+                                type="text"
+                                placeholder = 'Email'
+                                onChange={this.handleChange}
+                            />
+                          </Form.Field>
+                          <Divider/>
+                          <Form.Field>
+                            <div className = "login-font">
+                              <label>Password</label>
+                            </div>
+                            <Form.Input transparent
+                                icon="lock"
+                                iconPosition="left"
+                                name="password"
+                                placeholder="Password"
+                                type="password"
+                                onChange={this.handleChange}
+                            />
+                          </Form.Field>
+                          <Form.Button centered fluid content="Login"/>
+                      </Segment>
+                    </Form>
+                  
+                  {this.state.error === '' ? (
+                      ''
+                  ) : (
+                      <Message
+                          error
+                          header="Login was not successful"
+                          content={this.state.error}
+                      />
+                  )}
+                </Grid.Column>
+              </Grid>
+            </Container>
+          </div>
+          <Footer/>
         </div>
     );
   }
