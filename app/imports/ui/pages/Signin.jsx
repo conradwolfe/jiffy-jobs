@@ -47,7 +47,7 @@ class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-        <div>
+         <div>
           <div className = "signin-background">
             <Container>
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
@@ -90,7 +90,7 @@ class Signin extends React.Component {
                           <Form.Button centered fluid content="Login"/>
                       </Segment>
                     </Form>
-
+                  
                   {this.state.error === '' ? (
                       ''
                   ) : (
