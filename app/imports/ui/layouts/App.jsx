@@ -10,11 +10,11 @@ import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
-import Footer from '../components/Footer';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import Footer from '../components/Footer';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -34,7 +34,6 @@ class App extends React.Component {
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
-            <Footer/>
           </div>
         </Router>
     );
