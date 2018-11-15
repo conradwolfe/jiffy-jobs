@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Header, Icon, Divider, Form } from 'semantic-ui-react';
+import { Menu, Header, Icon, Divider, Form, Dropdown } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -13,6 +13,7 @@ class NavBar extends React.Component {
       marginBottom: '10px',
       backgroundColor: 'white'
     };
+
     return (
         <div>
           <Menu borderless style={menuStyle} attached="top">
@@ -38,7 +39,48 @@ class NavBar extends React.Component {
             <Menu.Item compact position="right"><Icon size="large" name="user circle"/></Menu.Item>
             <Menu.Item compact><Icon size="large" name="home"/></Menu.Item>
             <Menu.Item compact><Icon size="large" name="suitcase"/></Menu.Item>
-            <Divider/>
+            <Menu.Item compact>
+              {this.props.currentUser === '' ? (
+                  <Dropdown icon='th' floating labeled button>
+                    <Dropdown.Menu className='left'>
+                      <Dropdown.Header content={"Currently not signed in"}/>
+                    </Dropdown.Menu>
+                  </Dropdown>
+              ) : (
+                  <Dropdown icon='th' floating labeled button>
+                    <Dropdown.Menu className='left'>
+                      <Dropdown.Header content={"Signed in as " + this.props.currentUser}/>
+                      <Dropdown.Divider/>
+                      <Dropdown.Item>
+                        <Icon name="settings" className="left floated"/>
+                        <div className="landing-text-dark">
+                          Settings
+                        </div>
+                      </Dropdown.Item>
+                      <Dropdown.Item>
+                        <Icon name="user" className="left floated"/>
+                        <div className="landing-text-dark">
+                          Edit Profile
+                        </div>
+                      </Dropdown.Item>
+                      <Dropdown.Item>
+                        <Icon name="bell" className="left floated"/>
+                        <div className="landing-text-dark">
+                          Notifications
+                        </div>
+                      </Dropdown.Item>
+                      {this.props.currentUser ? (
+                          <Dropdown.Item as={NavLink} exact to="/signout">
+                            <Icon name="sign-out" className="left floated"/>
+                            <div className="landing-text-dark">
+                              Sign Out
+                            </div>
+                          </Dropdown.Item>
+                      ) : ''}
+                    </Dropdown.Menu>
+                  </Dropdown>
+              )}
+            </Menu.Item>
           </Menu>
         </div>
     );
