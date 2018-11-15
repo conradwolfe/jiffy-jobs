@@ -1,7 +1,7 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }],
+    { "firstname": "Admin", "lastname": "Nimda", "email": "admin@foo.com", "password": "changeme", "usertype": "company", "role": "admin" },
+    { "firstname": "John", "lastname": "Doe", "email": "john@foo.com", "password": "changeme", "usertype": "student" }],
   "defaultContacts": [
     { "firstName": "Philip", "lastName": "Johnson", "address": "POST 307",
       "image": "https://philipmjohnson.github.io/images/philip2.jpeg", "owner": "john@foo.com",

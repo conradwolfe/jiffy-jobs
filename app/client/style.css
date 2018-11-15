@@ -35,6 +35,22 @@
   background: linear-gradient(to right, #525252, #3d72b4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-size: cover;
 }
+.signup-background{
+  background: #525252; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #525252, #3d72b4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #525252, #3d72b4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+}
+.signup-font {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+.signup-header {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
 
 /*
 Sets input text to white and montserrat font.
