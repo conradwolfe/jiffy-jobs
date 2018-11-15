@@ -3,6 +3,7 @@ import { Grid, Image, Header, Icon, Divider, Container, Button, Segment, Menu } 
 import { Form } from 'semantic-ui-react/dist/commonjs/collections/Form/Form';
 import TopMenu from '../components/TopMenu';
 import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown';
+import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -27,11 +28,11 @@ class Landing extends React.Component {
                       </div>
                     </Header>
                     <Segment padded>
-                      <Button primary fluid>
+                      <Button primary fluid as={NavLink} exact to="/signin">
                         Login
                       </Button>
                       <Divider horizontal>Or</Divider>
-                      <Button secondary fluid>
+                      <Button secondary fluid as={NavLink} exact to="/signup">
                         Sign Up Now
                       </Button>
                     </Segment>
@@ -42,18 +43,48 @@ class Landing extends React.Component {
           <div>
             <footer>
               <div style={divStyle} className="ui center aligned container">
-                <Grid container verticalAlign='middle' centered columns={2}>
-                  <Grid.Column>
-                    <div className = "landing-text-dark">
-                      <h2 className = "landing-text-dark">Find job opportunities that fit your skill-set</h2>
-                      <p>Jiffy Jobs' interactive environment allows students find potential employers
-                      and helps employers hire students!</p>
-                    </div>
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Image src="/images/computerman.jpg" rounded size="medium"/>
-                    <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by Freepik</a>
-                  </Grid.Column>
+                <Grid container verticalAlign='middle' centered columns={2} rows={3}>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <div className = "landing-text-dark">
+                        <h2 className = "landing-text-dark">Find job opportunities that fit your skill-set</h2>
+                        <p>Jiffy Jobs' interactive environment allows students find potential employers
+                        and helps employers hire students!</p>
+                      </div>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Image src="/images/computerman.jpg" rounded size="medium"/>
+                      <a href="https://www.freepik.com/free-photos-vectors/business">Business vector created by Freepik</a>
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Divider/>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Image src="/images/computer.jpg" rounded size="medium"/>
+                      <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by Makyzz - Freepik.com</a>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <div className = "landing-text-dark">
+                        <h2 className = "landing-text-dark">Discover and connect with companies in your area.</h2>
+                        <p>Our interface displays local companies in an easy to read, easy to access manner.
+                          Local companies can discover students that suit job positions.</p>
+                      </div>
+                    </Grid.Column>
+                  </Grid.Row>
+                  <Divider/>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <div className = "landing-text-dark">
+                        <h2 className = "landing-text-dark">Rate companies and show off your Jiffy Score!</h2>
+                        <p>Our interface displays local companies in an easy to read, easy to access manner.
+                          Local companies can discover students that suit job positions.</p>
+                      </div>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Image src="/images/rating.jpg" rounded size="medium"/>
+                      <a href="https://www.freepik.com/free-vector/positive-and-negative-rating-design_1064362.htm">Designed by Photoroyalty</a>
+                    </Grid.Column>
+                  </Grid.Row>
                 </Grid>
               </div>
             </footer>
