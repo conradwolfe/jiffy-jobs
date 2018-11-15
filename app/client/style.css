@@ -51,6 +51,7 @@
   padding-top: 70px;
   padding-bottom: 70px;
 }
+
 /*
 Sets input text to white and montserrat font.
  */
@@ -58,9 +59,14 @@ input[type=text] {
   font-family: 'Montserrat', sans-serif !important;
   color: white !important;
 }
+input[type=dark-text] {
+  font-family: 'Montserrat', sans-serif !important;
+  color: black !important;
+}
 /*
 Preserves asterisks.
  */
 input[type=password] {
   color: white !important;
 }
+
