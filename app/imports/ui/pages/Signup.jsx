@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Divider, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import Footer from '../components/Footer';
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
@@ -39,46 +40,67 @@ export default class Signup extends React.Component {
     const options = [{ key: 's', text: 'Student', value: 'student' },
       { key: 'c', text: 'Company', value: 'company' }];
     return (
+          <div className = "signup-background">
         <Container>
           <Grid textAlign="center" verticalAlign="middle" centered columns={1}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
+                <div className = "signup-header">
                 Register for an account
+                </div>
               </Header>
               <Form onSubmit={this.handleSubmit}>
-                <Segment stacked>
-                  <Form.Input
-                      label="First Name"
-                      icon="address card"
+                <Segment basic>
+                    <Form.Field>
+                      <div className = "signup-font">
+                        <label>First Name</label>
+                      </div>
+                  <Form.Input transparent
+                      icon="user"
                       iconPosition="left"
                       name="firstname"
                       required={true}
-                      type="firstname"
+                      type="text"
                       placeholder="First Name"
                       onChange={this.handleChange}
                   />
-                  <Form.Input
-                      label="Last Name"
-                      icon="american sign language interpreting"
+                    </Form.Field>
+                    <Divider/>
+                      <Form.Field>
+                        <div className = "signup-font">
+                          <label>Last Name</label>
+                        </div>
+                  <Form.Input transparent
+                      icon="address card"
                       iconPosition="left"
                       name="lastname"
                       required={true}
-                      type="lastname"
+                      type="text"
                       placeholder="Last Name"
                       onChange={this.handleChange}
                   />
-                  <Form.Input
-                      label="Email"
-                      icon="user"
+                      </Form.Field>
+                    <Divider/>
+                  <Form.Field>
+                    <div className = "signup-font">
+                      <label>Email</label>
+                    </div>
+                  <Form.Input transparent
+                      icon="envelope outline"
                       iconPosition="left"
                       name="email"
                       required={true}
-                      type="email"
+                      type="text"
                       placeholder="E-mail address"
                       onChange={this.handleChange}
                   />
-                  <Form.Input
-                      label="Password"
+                </Form.Field>
+                    <Divider/>
+                  <Form.Field>
+                    <div className = "signup-font">
+                      <label>Password</label>
+                    </div>
+                  <Form.Input transparent
                       icon="lock"
                       iconPosition="left"
                       name="password"
@@ -87,26 +109,40 @@ export default class Signup extends React.Component {
                       type="password"
                       onChange={this.handleChange}
                   />
-                  <Form.Select
-                      label = "User Type"
-                      icon="sort down"
+              </Form.Field>
+                    <Divider/>
+                  <Form.Field>
+                    <div className = "signup-font">
+                      <label>User Type</label>
+                    </div>
+                  <Form.Select transparent
+                      icon="dropdown"
                       iconPosition="right"
                       name="usertype"
                       required={true}
-                      type="usertype"
+                      type="text"
                       placeholder="User Type"
                       options={options}
                       onChange={this.handleChange}
                   />
+            </Form.Field>
+                    <Divider/>
+                  <Form.Field>
+                    <div className = "signup-font">
+                      <label>I agree to the Terms and Conditions</label>
+                    </div>
                   <Form.Checkbox
-                      label="I agree to the Terms and Conditions"
                       required={true}
                   />
-                  <Form.Button content="Submit"/>
+                  </Form.Field>
+                  <Divider/>
+                  <Form.Field>
+                  <Form.Button centered fluid content="Submit"/>
+                  </Form.Field>
                 </Segment>
               </Form>
               <Message>
-                Already have an account? Login <Link to="/signin">here</Link>
+                Already have an account? Login  <Link to="/signin">here</Link>
               </Message>
               {this.state.error === '' ? (
                   ''
@@ -120,6 +156,8 @@ export default class Signup extends React.Component {
             </Grid.Column>
           </Grid>
         </Container>
+            <Footer/>
+          </div>
     );
   }
 }
