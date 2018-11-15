@@ -1,14 +1,15 @@
 import React from 'react';
-import { Container, Menu, Dropdown } from 'semantic-ui-react';
+import { Container, Menu, Dropdown, Icon } from 'semantic-ui-react';
 
 export default class TopMenu extends React.Component {
   render() {
     return (
         <Menu borderless className="topmenu">
           <Container>
-          <Dropdown item text='Categories'>
+            <Menu.Item fitted position ="right"><Icon name="user circle"/></Menu.Item>
+          <Dropdown item text='Profile'>
             <Dropdown.Menu>
-              <Dropdown.Item>Electronics</Dropdown.Item>
+              <Dropdown.Item>Matches</Dropdown.Item>
               <Dropdown.Item>Automotive</Dropdown.Item>
               <Dropdown.Item>Home</Dropdown.Item>
             </Dropdown.Menu>
