@@ -36,9 +36,9 @@ class NavBar extends React.Component {
                 </Form.Group>
               </Form>
             </Menu.Item>
-            <Menu.Item compact position="right"><Icon size="large" name="user circle"/></Menu.Item>
-            <Menu.Item compact><Icon size="large" name="home"/></Menu.Item>
-            <Menu.Item compact><Icon size="large" name="suitcase"/></Menu.Item>
+            <Menu.Item compact position="right" as={NavLink} exact to="/errorpage"><Icon size="large" name="user circle"/></Menu.Item>
+            <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
+            <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="suitcase"/></Menu.Item>
             <Menu.Item compact>
               {this.props.currentUser === '' ? (
                   <Dropdown icon='th' floating labeled button>
@@ -51,19 +51,19 @@ class NavBar extends React.Component {
                     <Dropdown.Menu className='left'>
                       <Dropdown.Header content={"Signed in as " + this.props.currentUser}/>
                       <Dropdown.Divider/>
-                      <Dropdown.Item>
+                      <Dropdown.Item as={NavLink} exact to="/errorpage">
                         <Icon name="settings" className="left floated"/>
                         <div className="landing-text-dark">
                           Settings
                         </div>
                       </Dropdown.Item>
-                      <Dropdown.Item>
+                      <Dropdown.Item as={NavLink} exact to="/errorpage">
                         <Icon name="user" className="left floated"/>
                         <div className="landing-text-dark">
                           Edit Profile
                         </div>
                       </Dropdown.Item>
-                      <Dropdown.Item>
+                      <Dropdown.Item as={NavLink} exact to="/errorpage">
                         <Icon name="bell" className="left floated"/>
                         <div className="landing-text-dark">
                           Notifications
