@@ -10,7 +10,7 @@ export default class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '' };
+    this.state = { firstname: '', lastname: '', email: '', password: '', usertype: '', error: '' };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,8 +24,8 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
-    const { email, password } = this.state;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { firstname, lastname, email, password, usertype } = this.state;
+    Accounts.createUser({ email, username: email, firstname, lastname, password, usertype }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -36,20 +36,43 @@ export default class Signup extends React.Component {
 
   /** Display the signup form. */
   render() {
+    const options = [{ key: 's', text: 'Student', value: 'student' },
+      { key: 'c', text: 'Company', value: 'company' }];
     return (
         <Container>
-          <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
+          <Grid textAlign="center" verticalAlign="middle" centered columns={1}>
             <Grid.Column>
               <Header as="h2" textAlign="center">
-                Register your account
+                Register for an account
               </Header>
               <Form onSubmit={this.handleSubmit}>
                 <Segment stacked>
+                  <Form.Input
+                      label="First Name"
+                      icon="address card"
+                      iconPosition="left"
+                      name="firstname"
+                      required={true}
+                      type="firstname"
+                      placeholder="First Name"
+                      onChange={this.handleChange}
+                  />
+                  <Form.Input
+                      label="Last Name"
+                      icon="american sign language interpreting"
+                      iconPosition="left"
+                      name="lastname"
+                      required={true}
+                      type="lastname"
+                      placeholder="Last Name"
+                      onChange={this.handleChange}
+                  />
                   <Form.Input
                       label="Email"
                       icon="user"
                       iconPosition="left"
                       name="email"
+                      required={true}
                       type="email"
                       placeholder="E-mail address"
                       onChange={this.handleChange}
@@ -59,9 +82,25 @@ export default class Signup extends React.Component {
                       icon="lock"
                       iconPosition="left"
                       name="password"
+                      required={true}
                       placeholder="Password"
                       type="password"
                       onChange={this.handleChange}
+                  />
+                  <Form.Select
+                      label = "User Type"
+                      icon="sort down"
+                      iconPosition="right"
+                      name="usertype"
+                      required={true}
+                      type="usertype"
+                      placeholder="User Type"
+                      options={options}
+                      onChange={this.handleChange}
+                  />
+                  <Form.Checkbox
+                      label="I agree to the Terms and Conditions"
+                      required={true}
                   />
                   <Form.Button content="Submit"/>
                 </Segment>
