@@ -3,26 +3,44 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Header, Icon } from 'semantic-ui-react';
+import { Menu, Header, Icon, Divider, Form } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
-    const menuStyle = { marginBottom: '10px' };
+    const menuStyle = {
+      marginBottom: '10px',
+      backgroundColor: 'white'
+    };
     return (
-        <Menu style={menuStyle} attached="top">
-          <Menu.Item as={NavLink} activeClassName="" exact to="/">
-            <Header as='h1'>JJ</Header>
-          </Menu.Item>
-        <Menu.Item position="right">
-          <Menu.Item fitted position ="right"><Icon size="big" name="user circle"/></Menu.Item>
-          <Menu.Item fitted ><Icon size="big" name="home"/></Menu.Item>
-          <Menu.Item fitted ><Icon size="big" name="suitcase"/></Menu.Item>
-          <Menu.Item fitted ><Icon size="big" name="search"/></Menu.Item>
-        </Menu.Item>
-      </Menu>
-
+        <div>
+          <Menu borderless style={menuStyle} attached="top">
+            <Menu.Item compact as={NavLink} activeClassName="" exact to="/">
+              <Header as='h2'>JJ</Header>
+            </Menu.Item>
+            <Menu.Item compact>
+              <Form>
+                <Form.Group>
+                  <Form.Field>
+                    <Form.Input
+                        icon="search"
+                        iconPosition="left"
+                        name="search"
+                        type="dark-text"
+                        placeholder='Search'
+                    />
+                  </Form.Field>
+                  <Form.Button content="Search"/>
+                </Form.Group>
+              </Form>
+            </Menu.Item>
+            <Menu.Item compact position="right"><Icon size="large" name="user circle"/></Menu.Item>
+            <Menu.Item compact><Icon size="large" name="home"/></Menu.Item>
+            <Menu.Item compact><Icon size="large" name="suitcase"/></Menu.Item>
+            <Divider/>
+          </Menu>
+        </div>
     );
   }
 }
