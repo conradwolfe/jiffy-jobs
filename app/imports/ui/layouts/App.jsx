@@ -16,8 +16,6 @@ import Signout from '../pages/Signout';
 import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
 
-
-
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {

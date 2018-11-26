@@ -9,9 +9,9 @@ const CompanyInfo = new Mongo.Collection('CompanyInfo');
 const CompanySchema = new SimpleSchema({
     companyName: String,
     location: String,
-    website: String,
     description: String,
     image: String,
+    owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

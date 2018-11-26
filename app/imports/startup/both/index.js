@@ -1,1 +1,2 @@
-import '/imports/api/stuff';
+import '/imports/api/companyinfo';
+import '/imports/api/studentinfo';
