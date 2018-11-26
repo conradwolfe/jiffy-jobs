@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Header, Icon, Divider, Form, Dropdown } from 'semantic-ui-react';
+import { Menu, Header, Icon, Form, Dropdown } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -11,7 +11,7 @@ class NavBar extends React.Component {
   render() {
     const menuStyle = {
       marginBottom: '10px',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
     };
 
     return (
@@ -38,7 +38,7 @@ class NavBar extends React.Component {
             </Menu.Item>
             <Menu.Item compact position="right" as={NavLink} exact to="/errorpage"><Icon size="large" name="user circle"/></Menu.Item>
             <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
-            <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="suitcase"/></Menu.Item>
+            <Menu.Item compact as={NavLink} exact to="/cdash"><Icon size="large" name="suitcase"/></Menu.Item>
             <Menu.Item compact>
               {this.props.currentUser === '' ? (
                   <Dropdown icon='th' floating labeled button>
