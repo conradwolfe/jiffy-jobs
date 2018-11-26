@@ -16,6 +16,7 @@ import Signout from '../pages/Signout';
 import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
 import StudentProfile from '../pages/StudentProfile';
+import CompanyProfile from '../pages/CompanyProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -30,6 +31,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/cdash" component={CompanyDash}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/companyprofile" component={CompanyProfile} />
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
