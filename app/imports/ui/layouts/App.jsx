@@ -15,6 +15,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
+import StudentProfile from '../pages/StudentProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
+              <ProtectedRoute path="/studentprofile" component={StudentProfile}/>
               <Route component={NotFound}/>
             </Switch>
           </div>
