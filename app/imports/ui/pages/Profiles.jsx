@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader } from 'semantic-ui-react';
-import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
 import StudentProfile from '/imports/ui/components/StudentProfile';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
+import { StudentInfo } from '../../api/studentinfo/studentinfo';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class Profiles extends React.Component {
@@ -20,7 +21,7 @@ class Profiles extends React.Component {
         <div>
           <div>
             <Container>
-                {this.props.companyinfo.map((companyinfo, index) => <StudentProfile key={index} companyinfo={companyinfo}/>)}
+                {this.props.companyinfo.map((studentinfo, index) => <StudentProfile key={index} studentinfo={StudentInfo}/>)}
             </Container>
           </div>
           <StudentProfile/>
