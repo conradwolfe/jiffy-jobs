@@ -38,7 +38,11 @@ class NavBar extends React.Component {
             </Menu.Item>
             <Menu.Item compact position="right" as={NavLink} exact to="/studentprofile"><Icon size="large" name="user circle"/></Menu.Item>
             <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
-            <Menu.Item compact as={NavLink} exact to="/cdash"><Icon size="large" name="suitcase"/></Menu.Item>
+            {Roles.userIsInRole(Meteor.userId(), 'company') ? (
+                <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="suitcase"/></Menu.Item>
+            ) : (
+                <Menu.Item compact as={NavLink} exact to="/cdash"><Icon size="large" name="suitcase"/></Menu.Item>
+            )}
             <Menu.Item compact>
               {this.props.currentUser === '' ? (
                   <Dropdown icon='th' floating labeled button>

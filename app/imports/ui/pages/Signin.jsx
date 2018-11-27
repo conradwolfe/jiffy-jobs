@@ -52,7 +52,7 @@ class Signin extends React.Component {
             <Container>
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
                 <Grid.Column>
-                    <Header  as="h2" textAlign="center">
+                    <Header as="h2" textAlign="center">
                       <div className = "login-header">
                         Login to your account
                       </div>
@@ -90,7 +90,7 @@ class Signin extends React.Component {
                           <Form.Button centered fluid content="Login"/>
                       </Segment>
                     </Form>
-                  
+
                   {this.state.error === '' ? (
                       ''
                   ) : (
