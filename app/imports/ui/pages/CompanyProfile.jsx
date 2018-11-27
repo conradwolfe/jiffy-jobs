@@ -16,10 +16,10 @@ class CompanyProfile extends React.Component {
         return (
             <div>
                 <div className="profile-page">
-                    <Grid container verticalAlign='center' centered columns={2}>
+                    <Grid container verticalAlign='middle' centered columns={2}>
                         <Grid.Column verticalAlign='left'>
                             <Grid.Row>
-                                <Image size='medium' centered
+                                <Image size='medium' left
                                        src={"https://react.semantic-ui.com/images/avatar/large/matthew.png"}/>
                             </Grid.Row>
                             <Grid.Row>
@@ -46,7 +46,7 @@ class CompanyProfile extends React.Component {
                             <div className="bio-stuff">
                                 <Grid.Row>
                                     <div>
-                                        <Header size="huge" as='h2' icon textAlign='left'>
+                                        <Header size="huge" as='h2' icon textAlign='center'>
                                             <div className="UserFirstAndLast">
                                                 {this.props.firstname}
                                             </div>
@@ -55,7 +55,7 @@ class CompanyProfile extends React.Component {
                                 </Grid.Row>
                                 <Divider/>
                                 <Grid.Row>
-                                    <Header size="huge" as='h2' icon textAlign='left'>
+                                    <Header size="huge" as='h2' icon textAlign='center'>
                                         <div className="UserFirstAndLast">
                                             BIO
                                         </div>
@@ -64,7 +64,7 @@ class CompanyProfile extends React.Component {
                                 </Grid.Row>
                                 <Divider/>
                                 <Grid.Row>
-                                    <Header size="huge" as='h2' icon textAlign='left'>
+                                    <Header size="huge" as='h2' icon textAlign='center'>
                                         <div className="UserFirstAndLast">
                                             Interests
                                         </div>

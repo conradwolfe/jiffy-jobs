@@ -18,81 +18,75 @@ class StudentProfile extends React.Component {
   }
 
   render() {
-    const divStyle = { paddingTop: '50px', paddingBottom: '150px' };
+    const divStyle = {paddingTop: '50px', paddingBottom: '150px'};
     return (
         <div>
           <div className="profile-page">
-            <Grid container verticalAlign='left' centered columns={2}>
-              <Grid.Column>
-                <Container>
-                  <div className="img-info">
-                    <Grid container verticalAlign='center' centered rows={2}>
-                      <Grid.Row>
-                        <Image size='medium' floated='right' src={this.props.companyinfo.image}/>
-                      </Grid.Row>
-                      <Grid.Row>
-                        <Grid container verticalAlign='left' centered columns={2}>
-                          <Grid.Column>
-                            <Header size="huge" as='h2' icon textAlign='left'>
-                              <div className="UserFirstAndLast">
-                                Rating
-                              </div>
-                            </Header>
-                            <p>
-                              94%
-                            </p>
-                          </Grid.Column>
-                      <Divider/>
-                        <Grid.Column>
-                          <Header size="huge" as='h2' icon textAlign='left'>
-                            <div className="UserFirstAndLast">
-                              Contact Information
-                            </div>
-                          </Header>
-                        </Grid.Column>
-                        </Grid>
-                      </Grid.Row>
-                    </Grid>
-                  </div>
-                </Container>
-              </Grid.Column>
-              <Grid.Column>
-                <Container>
-                    <div className="bio-stuff">
-                      <Grid container verticalAlign='center' centered rows={3}>
-                      <Grid.Row>
-                        <div>
-                          <Header size="huge" as='h2' icon textAlign='left'>
-                            <div className="UserFirstAndLast">
-                              {this.props.companyinfo.companyName}
-                            </div>
-                          </Header>
-                        </div>
-                      </Grid.Row>
-                        <Divider/>
-                      <Grid.Row>
-                        <Header size="huge" as='h2' icon textAlign='left'>
-                          <div className="UserFirstAndLast">
-                            BIO
-                          </div>
-                        </Header>
-                        <p> {this.props.companyinfo.description}</p>
-                      </Grid.Row>
-                        <Divider/>
-                      <Grid.Row>
-                        <Header size="huge" as='h2' icon textAlign='left'>
-                          <div className="UserFirstAndLast">
-                            Interests
-                          </div>
-                        </Header>
-                        <p> Affert iudico oblique ea vim. Pri an fierent principes, perfecto definitionem an has, in cibo accusam sit. Eam doming putent ei. No alii populo vituperatoribus duo, est mentitum voluptua ex, veri aliquip prompta sit ei. Mei brute dicam scripta eu, nisl oportere cu pro.
-
-                          Duo ex graeco mediocrem consequuntur, eos adhuc nostrud fuisset at. Fierent abhorreant ea sit. Te nec sint audiam concludaturque, cu quod aeterno torquatos eam. Cum dolore ignota conceptam ex, vim ne urbanitas comprehensam necessitatibus. Nam graeci consequuntur ut, congue iudicabit nam ad. Cum te purto dicat fuisset, cum te audiam prodesset comprehensam.
-                        </p>
-                      </Grid.Row>
-                      </Grid>
+            <Grid container verticalAlign='middle' centered columns={2}>
+              <Grid.Column verticalAlign='left'>
+                <Grid.Row>
+                  <Image size='medium' left
+                         src={"https://react.semantic-ui.com/images/avatar/large/matthew.png"}/>
+                </Grid.Row>
+                <Grid.Row>
+                  <Header size="huge" as='h2' icon textAlign='left'>
+                    <div className="UserFirstAndLast">
+                      Rating
                     </div>
-                </Container>
+                  </Header>
+                </Grid.Row>
+                <Grid.Row>
+                  <p>
+                    94%
+                  </p>
+                </Grid.Row>
+                <Grid.Row>
+                  <Header size="huge" as='h2' icon textAlign='left'>
+                    <div className="UserFirstAndLast">
+                      Contact Information
+                    </div>
+                  </Header>
+                </Grid.Row>
+              </Grid.Column>
+              <Grid.Column verticalAlign='right'>
+                <div className="bio-stuff">
+                  <Grid.Row>
+                    <div>
+                      <Header size="huge" as='h2' icon textAlign='center'>
+                        <div className="UserFirstAndLast">
+                          {this.props.firstname}
+                        </div>
+                      </Header>
+                    </div>
+                  </Grid.Row>
+                  <Divider/>
+                  <Grid.Row>
+                    <Header size="huge" as='h2' icon textAlign='center'>
+                      <div className="UserFirstAndLast">
+                        BIO
+                      </div>
+                    </Header>
+                    <p> {this.props.description}</p>
+                  </Grid.Row>
+                  <Divider/>
+                  <Grid.Row>
+                    <Header size="huge" as='h2' icon textAlign='center'>
+                      <div className="UserFirstAndLast">
+                        Interests
+                      </div>
+                    </Header>
+                    <p> Affert iudico oblique ea vim. Pri an fierent principes, perfecto definitionem an
+                      has, in cibo accusam sit. Eam doming putent ei. No alii populo vituperatoribus
+                      duo, est mentitum voluptua ex, veri aliquip prompta sit ei. Mei brute dicam
+                      scripta eu, nisl oportere cu pro.
+                      Duo ex graeco mediocrem consequuntur, eos adhuc nostrud fuisset at. Fierent
+                      abhorreant ea sit. Te nec sint audiam concludaturque, cu quod aeterno torquatos
+                      eam. Cum dolore ignota conceptam ex, vim ne urbanitas comprehensam
+                      necessitatibus. Nam graeci consequuntur ut, congue iudicabit nam ad. Cum te
+                      purto dicat fuisset, cum te audiam prodesset comprehensam.
+                    </p>
+                  </Grid.Row>
+                </div>
               </Grid.Column>
             </Grid>
           </div>
