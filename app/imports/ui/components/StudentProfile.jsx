@@ -1,14 +1,22 @@
 import React from 'react';
-import { Grid, Image, Header, Divider, Container, Button, Segment } from 'semantic-ui-react';
+import { Grid, Image, Header, Divider, Container, Button } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react/dist/commonjs/collections/Form/Form';
 import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
+import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
 
-/** A simple static component to render some text for the landing page. */
+/** A simple static component to render some text for the profile page. */
 class StudentProfile extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.deleteCallback = this.deleteCallback.bind(this);
+  }
+
   render() {
     const divStyle = { paddingTop: '50px', paddingBottom: '150px' };
     return (
@@ -20,8 +28,7 @@ class StudentProfile extends React.Component {
                   <div className="img-info">
                     <Grid container verticalAlign='center' centered rows={2}>
                       <Grid.Row>
-                        <Image src="/images/computer.jpg" rounded size="medium"/>
-                        <a href="https://www.freepik.com/free-photos-vectors/background"></a>
+                        <Image size='medium' floated='right' src={this.props.companyinfo.image}/>
                       </Grid.Row>
                       <Grid.Row>
                         <Grid container verticalAlign='left' centered columns={2}>
@@ -31,6 +38,9 @@ class StudentProfile extends React.Component {
                                 Rating
                               </div>
                             </Header>
+                            <p>
+                              94%
+                            </p>
                           </Grid.Column>
                       <Divider/>
                         <Grid.Column>
@@ -54,7 +64,7 @@ class StudentProfile extends React.Component {
                         <div>
                           <Header size="huge" as='h2' icon textAlign='left'>
                             <div className="UserFirstAndLast">
-                              USER FIRST AND LAST NAME
+                              {this.props.companyinfo.companyName}
                             </div>
                           </Header>
                         </div>
@@ -66,7 +76,7 @@ class StudentProfile extends React.Component {
                             BIO
                           </div>
                         </Header>
-                        <p> Lorem ipsum dolor sit amet, vim zril dicant ad, iriure sapientem concludaturque an ius, mei legendos accommodare cu. Quo id ponderum tincidunt. Per eu minim oratio. Nostro nominavi ne nam, his no scripta ceteros. Nibh verear fierent eum in, pro eu dicunt sadipscing signiferumque. Usu hinc officiis suscipiantur in, ius amet movet recusabo ei, cu purto persecuti duo.</p>
+                        <p> {this.props.companyinfo.description}</p>
                       </Grid.Row>
                         <Divider/>
                       <Grid.Row>
@@ -93,12 +103,8 @@ class StudentProfile extends React.Component {
 }
 
 StudentProfile.propTypes = {
+  companyinfo: PropTypes.object.isRequired,
   currentUser: PropTypes.string,
 };
 
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-const LandingContainer = withTracker(() => ({
-  currentUser: Meteor.user() ? Meteor.user().username : '',
-}))(StudentProfile);
-
-export default withRouter(LandingContainer);
+export default withRouter(StudentProfile);
