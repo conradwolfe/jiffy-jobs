@@ -26,10 +26,10 @@
       "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
       "description": "I am the owner of not-a-company.",
       "owner": "cade@foo.com"},
-    { "companyName": "Cade's Company", "location": "At home",
+    { "companyName": "Test Company", "location": "At home",
       "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
       "description": "I am the owner of not-a-company.",
-      "owner": "cade@foo.com"}
+      "owner": "john@foo.com"}
   ],
   "defaultStudentCards": [
     { "firstName": "Philip", "lastName": "Johnson",

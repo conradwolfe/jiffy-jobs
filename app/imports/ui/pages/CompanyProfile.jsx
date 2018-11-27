@@ -48,7 +48,7 @@ class CompanyProfile extends React.Component {
                                     <div>
                                         <Header size="huge" as='h2' icon textAlign='left'>
                                             <div className="UserFirstAndLast">
-                                                {this.props.firstname}
+                                                Edit name
                                             </div>
                                         </Header>
                                     </div>
@@ -60,7 +60,7 @@ class CompanyProfile extends React.Component {
                                             BIO
                                         </div>
                                     </Header>
-                                    <p> {this.props.description}</p>
+                                    <p> Edit Description </p>
                                 </Grid.Row>
                                 <Divider/>
                                 <Grid.Row>
@@ -91,14 +91,12 @@ class CompanyProfile extends React.Component {
 }
 
 CompanyProfile.propTypes = {
-    firstname: PropTypes.string,
-    image: PropTypes.string,
-    description: PropTypes.string,
+    ready: PropTypes.bool.isRequired,
 };
-const CompanyContainer = withTracker(() => ({
-    firstname: Meteor.user() ? Meteor.user().firstname : '',
-    image: Meteor.user() ? Meteor.user().image : '',
-    description: Meteor.user() ? Meteor.user().description : '',
-}))(CompanyProfile);
 
-export default withRouter(CompanyContainer);
+export default withTracker(() => {
+    const subscription = Meteor.subscribe('CompanyInfo');
+    return {
+        ready: subscription.ready(),
+    };
+})(CompanyProfile);
