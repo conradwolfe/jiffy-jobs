@@ -11,7 +11,7 @@ class Profiles extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Discovering Companies</Loader>;
+    return (this.props.ready) ? this.renderPage() : <Loader active>Opening Profile</Loader>;
   }
 
   /** Render the page once subscriptions have been received. */
@@ -20,7 +20,7 @@ class Profiles extends React.Component {
         <div>
           <div>
             <Container>
-                {this.props.companyinfo.map((companyinfo) => <StudentProfile key={index} companyinfo={companyinfo}/>)}
+                {this.props.companyinfo.map((companyinfo, index) => <StudentProfile key={index} companyinfo={companyinfo}/>)}
             </Container>
           </div>
           <StudentProfile/>
@@ -38,7 +38,7 @@ Profiles.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('CompanyInfo');
+  const subscription = Meteor.subscribe('StudentProfile');
   return {
     companyinfo: CompanyInfo.find({}).fetch(),
     ready: subscription.ready(),

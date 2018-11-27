@@ -28,8 +28,7 @@ class StudentProfile extends React.Component {
                   <div className="img-info">
                     <Grid container verticalAlign='center' centered rows={2}>
                       <Grid.Row>
-                        <Image src="/images/computer.jpg" rounded size="medium"/>
-                        <a href={this.props.companyinfo.image}></a>
+                        <Image size='medium' floated='right' src={this.props.companyinfo.image}/>
                       </Grid.Row>
                       <Grid.Row>
                         <Grid container verticalAlign='left' centered columns={2}>
@@ -108,9 +107,4 @@ StudentProfile.propTypes = {
   currentUser: PropTypes.string,
 };
 
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-const LandingContainer = withTracker(() => ({
-  currentUser: Meteor.user() ? Meteor.user().username : '',
-}))(StudentProfile);
-
-export default withRouter(LandingContainer);
+export default withRouter(StudentProfile);

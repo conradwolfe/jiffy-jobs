@@ -15,7 +15,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
-import Profiles from '../components/Profiles';
+import Profiles from '../pages/Profiles';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
