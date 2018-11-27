@@ -17,6 +17,7 @@ import Signout from '../pages/Signout';
 import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
 import Profiles from '../pages/Profiles';
+import CompanyProfile from '../pages/CompanyProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -37,6 +38,7 @@ class App extends React.Component {
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
               <ProtectedRoute path="/profiles" component={Profiles}/>
+                <ProtectedRoute path="/cprofile" component={CompanyProfile}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

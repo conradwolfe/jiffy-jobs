@@ -36,7 +36,7 @@ class NavBar extends React.Component {
                 </Form.Group>
               </Form>
             </Menu.Item>
-            <Menu.Item compact position="right" as={NavLink} exact to="/profiles"><Icon size="large" name="user circle"/></Menu.Item>
+            <Menu.Item compact position="right" as={NavLink} exact to="/cprofile"><Icon size="large" name="user circle"/></Menu.Item>
             <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
               {(() => {
                   if (Roles.userIsInRole(Meteor.userId(), 'company')) {
