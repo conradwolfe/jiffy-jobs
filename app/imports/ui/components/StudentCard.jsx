@@ -1,62 +1,39 @@
 import React from 'react';
-import { Card, Image, Feed, Button } from 'semantic-ui-react';
+import { Card, Image, Rating, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
-import Note from '/imports/ui/components/Note';
-import AddNote from '/imports/ui/components/AddNote';
-import { Bert } from 'meteor/themeteorchef:bert';
-import { StudentInfo } from '/imports/api/studentinfo/studentinfo';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onClick = this.onClick.bind(this);
-        this.deleteCallback = this.deleteCallback.bind(this);
-    }
-
-    deleteCallback(error) {
-        if (error) {
-            Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
-        } else {
-            Bert.alert({ type: 'success', message: 'Delete succeeded' });
-        }
-    }
-
-    onClick() {
-        /* eslint-disable-next-line */
-        if (confirm("Do you really want to delete this contact?")) {
-            Contacts.remove(this.props.contact._id, this.deleteCallBack);
-        }
-    }
-
     render() {
         return (
-            <Card>
+            <Card raised color="blue">
+                <Image size='small' centered src={this.props.studentinfo.image}/>
                 <Card.Content>
-                    <Image size='mini' floated='right' src={this.props.contact.image}/>
                     <Card.Header>
-                        {this.props.contact.firstName} {this.props.contact.lastName}
+                        <div className = "landing-text-dark">
+                            {this.props.studentinfo.firstName} {this.props.studentinfo.lastName}
+                        </div>
                     </Card.Header>
                     <Card.Meta>
-                        {this.props.contact.address}
+                        <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
+                    </Card.Meta>
+                    <Card.Meta>
+                        <div className = "landing-text-gray">
+                            Class of {this.props.studentinfo.gradyear}
+                        </div>
                     </Card.Meta>
                     <Card.Description>
-                        {this.props.contact.description}
+                        <div className = "landing-text-dark">
+                            {this.props.studentinfo.description}
+                        </div>
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
-                </Card.Content>
-                <Card.Content extra>
-                    <Feed>
-                        {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
-                    </Feed>
-                    <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
-                </Card.Content>
-                <Card.Content extra>
-                    <Button basic onClick={this.onClick}>
-                        Delete
+                    <Button fluid color="blue" as={ Link } to={`/edit/${this.props.studentinfo._id}`}>
+                        <div className = "landing-text">
+                            Visit Profile
+                        </div>
                     </Button>
                 </Card.Content>
             </Card>
@@ -66,8 +43,7 @@ class StudentCard extends React.Component {
 
 /** Require a document to be passed to this component. */
 StudentCard.propTypes = {
-    contact: PropTypes.object.isRequired,
-    notes: PropTypes.object.isRequired,
+    studentinfo: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
