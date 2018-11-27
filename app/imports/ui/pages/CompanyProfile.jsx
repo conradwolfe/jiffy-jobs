@@ -1,14 +1,17 @@
 import React from 'react';
-import { Grid, Image, Header, Divider, Container, Button, Segment } from 'semantic-ui-react';
+import { Grid, Image, Header, Divider, Container, List } from 'semantic-ui-react';
 import { Form } from 'semantic-ui-react/dist/commonjs/collections/Form/Form';
 import { Dropdown } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/Dropdown';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
+import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
 
 /** A simple static component to render some text for the landing page. */
 class CompanyProfile extends React.Component {
+
+
   render() {
     const divStyle = { paddingTop: '50px', paddingBottom: '150px' };
     return (
@@ -20,7 +23,7 @@ class CompanyProfile extends React.Component {
                   <div className="img-info">
                     <Grid container verticalAlign='center' centered rows={2}>
                       <Grid.Row>
-                        <Image src="/images/company.jpg" rounded size="medium"/>
+                        <Image src={this.props.companyinfo._id === Meteor.userId ? (this.props.companyinfo.image) : '/images/company.jpg'} rounded size="medium"/>
                         <a href="https://www.freepik.com/free-photos-vectors/background"></a>
                       </Grid.Row>
                       <Grid.Row>
@@ -39,6 +42,21 @@ class CompanyProfile extends React.Component {
                               Contact Information
                             </div>
                           </Header>
+                          <List>
+                            <List.Item>
+                              <List.Icon name='mail'/>
+                              <List.Content>
+                                {this.props.companyinfo._id === Meteor.userId ? (this.props.companyinfo.email) : ''}
+                              </List.Content>
+                            </List.Item>
+
+                            <List.Item>
+                              <List.Icon name="globe" />
+                              <List.Content>
+                                {this.props.companyinfo._id === Meteor.userId ? (this.props.companyinfo.website) : ''}
+                              </List.Content>
+                            </List.Item>
+                          </List>
                         </Grid.Column>
                         </Grid>
                       </Grid.Row>
@@ -54,7 +72,7 @@ class CompanyProfile extends React.Component {
                         <div>
                           <Header size="huge" as='h2' icon textAlign='left'>
                             <div className="UserFirstAndLast">
-                              COMPANY THAT DOESNT EXIST
+                              {this.props.companyinfo._id === Meteor.userId() ? (this.props.companyinfo.companyName) : ''}
                             </div>
                           </Header>
                         </div>
@@ -63,26 +81,23 @@ class CompanyProfile extends React.Component {
                       <Grid.Row>
                         <Header size="huge" as='h2' icon textAlign='left'>
                           <div className="UserFirstAndLast">
-                            DESCRIPTION
+                            About Us
                           </div>
                         </Header>
                       </Grid.Row>
                       <Grid.Row>
-                        <p> We do a whole bunch of nothing </p>
+                        <p> {this.props.companyinfo._id === Meteor.userId() ? (this.props.companyinfo.description) : ''} </p>
                       </Grid.Row>
                         <Divider/>
                       <Grid.Row>
                         <Header size="huge" as='h2' icon textAlign='left'>
                           <div className="UserFirstAndLast">
-                            CURRENT POSITIONS
+                            Current Positions
                           </div>
                         </Header>
                       </Grid.Row>
                         <Grid.Row>
-                        <p> INTERNS: unpaid position.</p>
-
-                            <p>RECEPTIONISTS: $11.50 an hour. To do nothing.
-                        </p>
+                        <p> {this.props.companyinfo._id === Meteor.userId ? (this.props.companyinfo.positions) : 'No positions available'}</p>
                       </Grid.Row>
                       </Grid>
                     </div>
@@ -97,12 +112,16 @@ class CompanyProfile extends React.Component {
 }
 
 CompanyProfile.propTypes = {
-  currentUser: PropTypes.string,
+  companyinfo:PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
-/** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-const LandingContainer = withTracker(() => ({
-  currentUser: Meteor.user() ? Meteor.user().username : '',
-}))(CompanyProfile);
+export default withTracker(() => {
+  // Get access to Stuff documents.
+  const subscription = Meteor.subscribe('CompanyInfo');
+  return {
+    companyinfo: CompanyInfo.find({}).fetch(),
+    ready: subscription.ready(),
+  };
 
-export default withRouter(LandingContainer);
+})(CompanyProfile);

@@ -2,6 +2,8 @@
   "defaultAccounts": [
     { "firstname": "Admin", "lastname": "Nimda", "email": "admin@foo.com", "password": "changeme", "usertype": "company", "role": "admin" },
     { "firstname": "John", "lastname": "Doe", "email": "john@foo.com", "password": "changeme", "usertype": "student" }],
+
+
   "defaultContacts": [
     { "firstName": "Philip", "lastName": "Johnson", "address": "POST 307",
       "image": "https://philipmjohnson.github.io/images/philip2.jpeg", "owner": "john@foo.com",
@@ -13,5 +15,12 @@
     "env": {
       "MONGO_URL": "mongodb://admin:808hawaii@ds061360.mlab.com:61360/jiffyjobs"
     }
-  }
+  },
+
+  "defaultCompanies": [
+    {"companyName": "Mini Mae's", "location": "Honolulu, Hawaii", "description": "We bake mini versions of all your favorite desserts", "image": "https://image.shutterstock.com/image-vector/cute-cartoon-cupcake-vector-illustration-260nw-574552861.jpg", "positions": "assitant baker: aids in baking", "rating": "4", "email":"maebaking@foo.com", "Website": "www.minimaes.com", "owner": ""},
+
+    {"companyName": "So on Fire", "location": "Honolulu, Hawaii", "description": "An inspirational clothing line.", "image": "https://image.shutterstock.com/image-vector/cartoon-tshirt-vector-260nw-478470106.jpg", "positions": "Designer: Creates designs to potray inspiration quotes", "rating": "4", "email":"onfire@foo.com", "Website": "www.soonfire.com", "owner": ""}
+
+  ]
 }
