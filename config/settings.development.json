@@ -30,5 +30,32 @@
       "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
       "description": "I am the owner of not-a-company.",
       "owner": "cade@foo.com"}
+  ],
+  "defaultStudentCards": [
+    { "firstName": "Philip", "lastName": "Johnson",
+      "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
+      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
+      "gradyear": "2018",
+      "owner": "johnson@foo.com" },
+    { "firstName": "Cade", "lastName": "Yamamoto",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am a student",
+      "gradyear": "2016",
+      "owner": "cade@foo.com" },
+    { "firstName": "Cade", "lastName": "Yamamoto",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am a student",
+      "gradyear": "2016",
+      "owner": "cade@foo.com" },
+    { "firstName": "Cade", "lastName": "Yamamoto",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am a student",
+      "gradyear": "2016",
+      "owner": "cade@foo.com" },
+    { "firstName": "Cade", "lastName": "Yamamoto",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am a student",
+      "gradyear": "2016",
+      "owner": "cade@foo.com" }
   ]
 }

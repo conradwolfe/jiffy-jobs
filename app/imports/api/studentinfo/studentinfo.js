@@ -9,9 +9,10 @@ const StudentInfo = new Mongo.Collection('StudentInfo');
 const StudentSchema = new SimpleSchema({
     firstName: String,
     lastName: String,
-    gradyear: Number,
+    gradyear: String,
     description: String,
     image: String,
+    owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
