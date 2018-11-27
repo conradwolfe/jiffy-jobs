@@ -112,7 +112,7 @@ class CompanyProfile extends React.Component {
 }
 
 CompanyProfile.propTypes = {
-  companyinfo:PropTypes.array.isRequired,
+  companyinfo: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
