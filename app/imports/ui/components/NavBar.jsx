@@ -42,15 +42,15 @@ class NavBar extends React.Component {
                   if (Roles.userIsInRole(Meteor.userId(), 'company')) {
                       return (
                           <Menu.Item compact as={NavLink} exact to="/cdash"><Icon size="large" name="suitcase"/></Menu.Item>
-                      )
+                      );
                   } else if (Roles.userIsInRole(Meteor.userId(), 'student')) {
                       return (
                           <Menu.Item compact as={NavLink} exact to="/sdash"><Icon size="large" name="suitcase"/></Menu.Item>
-                      )
+                      );
                   } else {
                       return (
                           <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="suitcase"/></Menu.Item>
-                      )
+                      );
                   }
               })()}
             <Menu.Item compact>
