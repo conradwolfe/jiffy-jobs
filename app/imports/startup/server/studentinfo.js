@@ -1,25 +1,25 @@
 import { Meteor } from 'meteor/meteor';
-import { CompanyInfo } from '../../api/companyinfo/companyinfo.js';
+import { StudentInfo } from '../../api/studentinfo/studentinfo.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
   console.log(`  Adding: ${data.name} (${data.owner})`);
-  CompanyInfo.insert(data);
+  StudentInfo.insert(data);
 }
 
 /** Initialize the collection if empty. */
-if (CompanyInfo.find().count() === 0) {
-  if (Meteor.settings.defaultCompanyCards) {
-    console.log('Creating default companies.');
-    Meteor.settings.defaultCompanyCards.map(data => addData(data));
+if (StudentInfo.find().count() === 0) {
+  if (Meteor.settings.defaultStudentCards) {
+    console.log('Creating default Students.');
+    Meteor.settings.defaultStudentCards.map(data => addData(data));
   }
 }
 
 /** This subscription publishes only the documents associated with the logged in user */
-Meteor.publish('CompanyInfo', function publish() {
+Meteor.publish('StudentInfo', function publish() {
   if (this.userId) {
     // const username = Meteor.users.findOne(this.userId).username;
-    return CompanyInfo.find({});
+    return StudentInfo.find({});
   }
   return this.ready();
 });

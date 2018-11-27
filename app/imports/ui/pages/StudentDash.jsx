@@ -1,18 +1,18 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Card, Header, Loader, Divider, Menu } from 'semantic-ui-react';
-import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
-import CompanyCard from '/imports/ui/components/CompanyCard';
+import { StudentInfo } from '/imports/api/studentinfo/studentinfo';
+import StudentCard from '/imports/ui/components/StudentCard';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class CompanyDash extends React.Component {
+class StudentDash extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Discovering Companies</Loader>;
+    return (this.props.ready) ? this.renderPage() : <Loader active>Discovering Students</Loader>;
   }
 
   /** Render the page once subscriptions have been received. */
@@ -30,12 +30,12 @@ class CompanyDash extends React.Component {
               <Menu.Item>
                 <Header as="h1" textAlign="center" inverted>
                   <div className = "landing-text-dark" style={spacing}>
-                    Company Dashboard
+                    Student Dashboard
                   </div>
                 </Header>
                 <Header as="h3" textAlign="center" inverted>
                   <div className = "landing-text-gray" style={spacing}>
-                    Display of all available companies
+                    Display of students looking for work
                   </div>
                 </Header>
               </Menu.Item>
@@ -44,8 +44,8 @@ class CompanyDash extends React.Component {
           <div className="dashboard-background">
             <Container>
                 <Card.Group centered itemsPerRow={4}>
-                  {this.props.companyinfo.map((companyinfo, index) => <CompanyCard key={index}
-                                                                        companyinfo={companyinfo}/>)}
+                  {this.props.studentinfo.map((studentinfo, index) => <StudentCard key={index}
+                                                                        studentinfo={studentinfo}/>)}
                 </Card.Group>
             </Container>
           </div>
@@ -67,17 +67,17 @@ class CompanyDash extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-CompanyDash.propTypes = {
-  companyinfo: PropTypes.array.isRequired,
+StudentDash.propTypes = {
+  studentinfo: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('CompanyInfo');
+  const subscription = Meteor.subscribe('StudentInfo');
   return {
-    companyinfo: CompanyInfo.find({}).fetch(),
+    studentinfo: StudentInfo.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(CompanyDash);
+})(StudentDash);
