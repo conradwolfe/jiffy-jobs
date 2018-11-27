@@ -18,7 +18,7 @@
     { "firstName": "John", "lastName": "Doe",
       "gradyear": "2020",
       "description": "I am a student at University of Hawaii.",
-      "image": "john@foo.com" },
+      "image": "john@foo.com" }
   ]
 }
 
