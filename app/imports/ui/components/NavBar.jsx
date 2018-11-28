@@ -36,23 +36,41 @@ class NavBar extends React.Component {
                 </Form.Group>
               </Form>
             </Menu.Item>
-            <Menu.Item compact position="right" as={NavLink} exact to="/cprofile"><Icon size="large" name="user circle"/></Menu.Item>
+            {(() => {
+              if (Roles.userIsInRole(Meteor.userId(), 'company')) {
+                return (
+                    <Menu.Item compact position="right" as={NavLink} exact to="/cprofile">
+                      <Icon size="large" name="user circle"/></Menu.Item>
+                );
+              } if (Roles.userIsInRole(Meteor.userId(), 'student')) {
+                return (
+                    <Menu.Item compact position="right" as={NavLink} exact to="/sprofile">
+                      <Icon size="large" name="user circle"/></Menu.Item>
+                );
+              } else {
+                return (
+                    <Menu.Item compact position="right" as={NavLink} exact to="/errorpage">
+                    <Icon size="large" name="user circle"/></Menu.Item>
+                );
+              }
+            })()}
             <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
-              {(() => {
-                  if (Roles.userIsInRole(Meteor.userId(), 'company')) {
-                      return (
-                          <Menu.Item compact as={NavLink} exact to="/cdash"><Icon size="large" name="suitcase"/></Menu.Item>
-                      )
-                  } else if (Roles.userIsInRole(Meteor.userId(), 'student')) {
-                      return (
-                          <Menu.Item compact as={NavLink} exact to="/sdash"><Icon size="large" name="suitcase"/></Menu.Item>
-                      )
-                  } else {
-                      return (
-                          <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="suitcase"/></Menu.Item>
-                      )
-                  }
-              })()}
+            {(() => {
+              if (Roles.userIsInRole(Meteor.userId(), 'company')) {
+                return (
+                    <Menu.Item compact as={NavLink} exact to="/sdash"><Icon size="large" name="suitcase"/></Menu.Item>
+                );
+              } if (Roles.userIsInRole(Meteor.userId(), 'student')) {
+                return (
+                    <Menu.Item compact as={NavLink} exact to="/cdash"><Icon size="large" name="suitcase"/></Menu.Item>
+                );
+              } else {
+                return (
+                    <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large"
+                                                                                name="suitcase"/></Menu.Item>
+                );
+              }
+            })()}
             <Menu.Item compact>
               {this.props.currentUser === '' ? (
                   <Dropdown icon='th' floating labeled button>
