@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Header, Divider, Loader } from 'semantic-ui-react';
+import { Grid, Image, Header, Divider, Loader, List, Icon, Segment, Button, Label } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -17,14 +17,22 @@ class CompanyProfile extends React.Component {
     return (
         <div>
           <div className="profile-page">
-            <Grid container verticalAlign='middle' columns={2}>
-              <Grid.Column verticalAlign='left'>
+            <Grid>
+                <Grid.Column width={4} className='profile-column' >
                 <Grid.Row>
-                  <Image size='medium' centered
+                  <Image rounded size='medium'
                          src={this.props.data.image}/>
                 </Grid.Row>
+                  <Divider hidden />
+                  <Grid.Row>
+                    <div>
+                    <Icon name='location arrow' color='blue' />
+                    {this.props.data.location}
+                    </div>
+                <Divider hidden />
+                  </Grid.Row>
                 <Grid.Row>
-                  <Header size="huge" as='h2' icon textAlign='left'>
+                  <Header size="huge" as='h2'>
                     <div className="landing-text-dark">
                       Rating
                     </div>
@@ -35,19 +43,42 @@ class CompanyProfile extends React.Component {
                     94%
                   </p>
                 </Grid.Row>
+                <Divider hidden />
                 <Grid.Row>
-                  <Header size="huge" as='h2' icon textAlign='left'>
+                  <Header size="huge" as='h2'>
                     <div className="landing-text-dark">
                       Contact Information
                     </div>
                   </Header>
+                  <List>
+                    <List.Item>
+                      <List.Icon name='mail' color='blue' />
+                      <List.Content>john@foo.com</List.Content>
+                    </List.Item>
+
+                    <List.Item>
+                      <List.Icon name='globe' color='blue' />
+                      <List.Content>website</List.Content>
+                    </List.Item>
+                  </List>
+                </Grid.Row>
+                <Divider hidden />
+                <Grid.Row>
+                  <Button as='div' labelPosition='right'>
+                    <Button basic color='blue'>
+                      <Icon name='add' />
+                    </Button>
+                    <Label as='a' basic color='blue' pointing='left'>
+                      Add to List
+                    </Label>
+                  </Button>
                 </Grid.Row>
               </Grid.Column>
-              <Grid.Column verticalAlign='right'>
+              <Grid.Column width='8' className="profile-column">
                 <div className="bio-stuff">
                   <Grid.Row>
                     <div>
-                      <Header size="huge" as='h2' icon textAlign='left'>
+                      <Header size="huge" as='h2' icon>
                         <div className="landing-text-dark">
                           {this.props.data.companyName}
                         </div>
@@ -56,16 +87,16 @@ class CompanyProfile extends React.Component {
                   </Grid.Row>
                   <Divider/>
                   <Grid.Row>
-                    <Header size="huge" as='h2' icon textAlign='left'>
+                    <Header size="huge" as='h1' icon>
                       <div className="landing-text-dark">
-                        BIO
+                        About Me
                       </div>
                     </Header>
                     <p> {this.props.data.description} </p>
                   </Grid.Row>
                   <Divider/>
                   <Grid.Row>
-                    <Header size="huge" as='h2' icon textAlign='left'>
+                    <Header size="huge" as='h2' icon>
                       <div className="landing-text-dark">
                         Interests
                       </div>
@@ -82,6 +113,12 @@ class CompanyProfile extends React.Component {
                     </p>
                   </Grid.Row>
                 </div>
+              </Grid.Column>
+              <Grid.Column width="3" className="profile-column">
+                <Segment circular size="huge" color='blue'>
+                  <Header as='h2'>Rating</Header>
+                  <Header as='h3'>94%</Header>
+                </Segment>
               </Grid.Column>
             </Grid>
           </div>
