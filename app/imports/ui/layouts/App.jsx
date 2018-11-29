@@ -16,7 +16,8 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
-import Profiles from '../pages/Profiles';
+import CompanyProfile from '../pages/CompanyProfile';
+import StudentProfile from '../pages/StudentProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -30,13 +31,14 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/cdash" component={CompanyDash}/>
-                <ProtectedRoute path="/sdash" component={StudentDash}/>
+              <ProtectedRoute path="/sdash" component={StudentDash}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
-              <ProtectedRoute path="/profiles" component={Profiles}/>
+              <ProtectedRoute path="/cprofile" component={CompanyProfile}/>
+              <ProtectedRoute path="/sprofile" component={StudentProfile}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

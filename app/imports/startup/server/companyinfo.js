@@ -15,11 +15,20 @@ if (CompanyInfo.find().count() === 0) {
   }
 }
 
-/** This subscription publishes only the documents associated with the logged in user */
+/** This subscription publishes all documents regardless of user */
 Meteor.publish('CompanyInfo', function publish() {
   if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
+
     return CompanyInfo.find({});
+  }
+  return this.ready();
+});
+
+/** This subscription publishes all documents owned by a specific company. */
+Meteor.publish('CompanyProfileInfo', function publish() {
+  const username = Meteor.users.findOne(this.userId).username;
+  if (this.userId && Roles.userIsInRole(this.userId, 'company')) {
+    return CompanyInfo.find({owner: username});
   }
   return this.ready();
 });

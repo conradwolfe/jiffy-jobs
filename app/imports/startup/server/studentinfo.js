@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { StudentInfo } from '../../api/studentinfo/studentinfo.js';
+import { CompanyInfo } from '../../api/companyinfo/companyinfo';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -15,11 +16,20 @@ if (StudentInfo.find().count() === 0) {
   }
 }
 
-/** This subscription publishes only the documents associated with the logged in user */
+/** This subscription publishes all documents regardless of user */
 Meteor.publish('StudentInfo', function publish() {
   if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
+
     return StudentInfo.find({});
+  }
+  return this.ready();
+});
+
+/** This subscription publishes all documents owned by a specific student. */
+Meteor.publish('StudentProfileInfo', function publish() {
+  const username = Meteor.users.findOne(this.userId).username;
+  if (this.userId && Roles.userIsInRole(this.userId, 'student')) {
+    return StudentInfo.find({ owner: username });
   }
   return this.ready();
 });
