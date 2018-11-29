@@ -55,6 +55,7 @@ class NavBar extends React.Component {
               }
             })()}
             <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
+            
             {(() => {
               if (Roles.userIsInRole(Meteor.userId(), 'company')) {
                 return (
@@ -71,6 +72,7 @@ class NavBar extends React.Component {
                 );
               }
             })()}
+        
             <Menu.Item compact>
               {this.props.currentUser === '' ? (
                   <Dropdown icon='th' floating labeled button>
