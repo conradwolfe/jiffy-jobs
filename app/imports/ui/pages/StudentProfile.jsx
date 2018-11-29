@@ -25,7 +25,7 @@ class StudentProfile extends React.Component {
                   <Divider hidden />
                   <Grid.Row>
                     <div>
-                      <Icon name='location arrow' color='blue' />
+                      <Icon name='graduation cap' color='blue' />
                       {this.props.data.gradyear}
                     </div>
                     <Divider hidden />
@@ -73,10 +73,7 @@ class StudentProfile extends React.Component {
                     <div>
                       <Header size="huge" as='h2' icon>
                         <div className="landing-text-dark">
-                          {this.props.data.firstName}
-                        </div>
-                        <div className="landing-text-dark">
-                          {this.props.data.lastName}
+                          {this.props.data.firstName} {this.props.data.lastName}
                         </div>
                       </Header>
                     </div>
