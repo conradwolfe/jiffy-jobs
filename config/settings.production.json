@@ -1,14 +1,33 @@
 {
   "defaultAccounts": [
-    { "firstname": "Admin", "lastname": "Nimda", "email": "admin@foo.com", "password": "changeme", "usertype": "company", "role": "admin" },
-    { "firstname": "John", "lastname": "Doe", "email": "john@foo.com", "password": "changeme", "usertype": "student" }],
-  "defaultContacts": [
-    { "firstName": "Philip", "lastName": "Johnson", "address": "POST 307",
-      "image": "https://philipmjohnson.github.io/images/philip2.jpeg", "owner": "john@foo.com",
-      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii." },
-    { "firstName": "Henri",  "lastName": "Casanova", "address": "POST 307, University of Hawaii",
-      "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",  "owner": "john@foo.com",
-      "description": "I am originally from France." }],
+    { "firstname": "Bob", "lastname": "Bobson", "email": "admin@foo.com", "password": "changeme", "usertype": "admin" },
+    { "firstname": "Philip", "lastname": "Johnson","email": "john@foo.com", "password": "changeme", "usertype": "company" },
+    { "firstname": "Joel", "lastname": "Sikkink","email": "joel@foo.com", "password": "changeme", "usertype": "company" },
+    { "firstname": "Cade", "lastname": "Yamamoto","email": "cade@foo.com", "password": "changeme", "usertype": "student" },
+    { "firstname": "Levy", "lastname": "Matsuda","email": "levy@foo.com", "password": "changeme", "usertype": "student" }
+  ],
+  "defaultCompanyCards": [
+    { "companyName": "Johnson's Company", "location": "POST 307, University of Hawaii",
+      "image": "https://philipmjohnson.github.io/images/philip2.jpeg",
+      "description": "I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.",
+      "owner": "john@foo.com" },
+    { "companyName": "Joel's Company", "location": "At home",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am the owner of not-a-company.",
+      "owner": "joel@foo.com"}
+  ],
+  "defaultStudentCards": [
+    { "firstName": "Cade", "lastName": "Yamamoto",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am a student",
+      "gradyear": "2016",
+      "owner": "cade@foo.com" },
+    { "firstName": "Levy", "lastName": "Matsuda",
+      "image": "https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg",
+      "description": "I am a student",
+      "gradyear": "2016",
+      "owner": "levy@foo.com" }
+  ],
   "galaxy.meteor.com": {
     "env": {
       "MONGO_URL": "mongodb://admin:808hawaii@ds061360.mlab.com:61360/jiffyjobs"
