@@ -19,6 +19,7 @@ class CompanyProfile extends React.Component {
           <div className="profile-page">
             <Grid>
                 <Grid.Column width={4} className='profile-column' >
+                <Segment>
                 <Grid.Row>
                   <Image rounded size='medium'
                          src={this.props.data.image}/>
@@ -48,6 +49,11 @@ class CompanyProfile extends React.Component {
                       <List.Icon name='globe' color='blue' />
                       <List.Content>website</List.Content>
                     </List.Item>
+
+                    <List.Item>
+                      <List.Icon name='phone' color='blue' />
+                      <List.Content>(123)-456-7890</List.Content>
+                    </List.Item>
                   </List>
                 </Grid.Row>
                 <Divider hidden />
@@ -61,9 +67,10 @@ class CompanyProfile extends React.Component {
                     </Label>
                   </Button>
                 </Grid.Row>
+                </Segment>
               </Grid.Column>
               <Grid.Column width='8' className="profile-column">
-                <div className="bio-stuff">
+                <Segment className="bio-stuff">
                   <Grid.Row>
                     <div>
                       <Header size="huge" as='h2' icon>
@@ -100,7 +107,7 @@ class CompanyProfile extends React.Component {
                       purto dicat fuisset, cum te audiam prodesset comprehensam.
                     </p>
                   </Grid.Row>
-                </div>
+                </Segment>
               </Grid.Column>
               <Grid.Column width="3" className="profile-column">
                 <Segment circular size="huge" color='blue'>
