@@ -31,18 +31,6 @@ class CompanyProfile extends React.Component {
                     </div>
                 <Divider hidden />
                   </Grid.Row>
-                <Grid.Row>
-                  <Header size="huge" as='h2'>
-                    <div className="landing-text-dark">
-                      Rating
-                    </div>
-                  </Header>
-                </Grid.Row>
-                <Grid.Row>
-                  <p>
-                    94%
-                  </p>
-                </Grid.Row>
                 <Divider hidden />
                 <Grid.Row>
                   <Header size="huge" as='h2'>
