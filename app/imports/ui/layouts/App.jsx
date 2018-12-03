@@ -18,6 +18,7 @@ import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
 import CompanyProfile from '../pages/CompanyProfile';
 import StudentProfile from '../pages/StudentProfile';
+import EditProfile from '../pages/EditProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
               <ProtectedRoute path="/cprofile" component={CompanyProfile}/>
               <ProtectedRoute path="/sprofile" component={StudentProfile}/>
+              <ProtectedRoute path="/editprofile" component={EditProfile}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

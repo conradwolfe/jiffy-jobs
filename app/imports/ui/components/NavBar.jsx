@@ -91,7 +91,7 @@ class NavBar extends React.Component {
                           Settings
                         </div>
                       </Dropdown.Item>
-                      <Dropdown.Item as={NavLink} exact to="/errorpage">
+                      <Dropdown.Item as={NavLink} exact to="/editprofile">
                         <Icon name="user" className="left floated"/>
                         <div className="landing-text-dark">
                           Edit Profile
