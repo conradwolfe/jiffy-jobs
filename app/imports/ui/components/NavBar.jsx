@@ -48,14 +48,10 @@ class NavBar extends React.Component {
                       <Icon size="large" name="user circle"/></Menu.Item>
                 );
               } else {
-                return (
-                    <Menu.Item compact position="right" as={NavLink} exact to="/errorpage">
-                    <Icon size="large" name="user circle"/></Menu.Item>
+                return (""
                 );
               }
             })()}
-            <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
-            
             {(() => {
               if (Roles.userIsInRole(Meteor.userId(), 'company')) {
                 return (
@@ -67,12 +63,12 @@ class NavBar extends React.Component {
                 );
               } else {
                 return (
-                    <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large"
+                    <Menu.Item compact  as={NavLink} exact to="/adash"><Icon size="large"
                                                                                 name="suitcase"/></Menu.Item>
                 );
               }
             })()}
-        
+            <Menu.Item compact as={NavLink} exact to="/errorpage"><Icon size="large" name="home"/></Menu.Item>
             <Menu.Item compact>
               {this.props.currentUser === '' ? (
                   <Dropdown icon='th' floating labeled button>
