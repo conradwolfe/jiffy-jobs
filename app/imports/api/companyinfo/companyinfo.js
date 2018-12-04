@@ -12,6 +12,7 @@ const CompanySchema = new SimpleSchema({
     description: String,
     image: String,
     owner: String,
+    interests: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

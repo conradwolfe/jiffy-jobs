@@ -40,7 +40,7 @@ class StudentProfile extends React.Component {
                     <List>
                       <List.Item>
                         <List.Icon name='mail' color='blue' />
-                        <List.Content>john@foo.com</List.Content>
+                        <List.Content>{this.props.data.owner}</List.Content>
                       </List.Item>
 
                       <List.Item>

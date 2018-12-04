@@ -18,8 +18,8 @@ class EditProfile extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { companyName, location, description, image, _id } = data;
-    CompanyInfo.update(_id, { $set: { companyName, location, description, image } }, (error) => (error ?
+    const { companyName, location, description, image, interests, _id } = data;
+    CompanyInfo.update(_id, { $set: { companyName, location, description, image, interests } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -32,34 +32,36 @@ class EditProfile extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <Grid container centered>
+        <Grid  container centered>
           <Grid.Row>
             <Header as="h1" textAlign="center">Edit Your Profile</Header>
           </Grid.Row>
           <AutoForm schema={CompanySchema} onSubmit={this.submit} model={this.props.doc}>
             <Grid container centered>
               <Grid.Row>
-                <Grid.Column width={6}>
+                <Grid.Column width={8}>
                   <TextField name='companyName'/>
                 </Grid.Column>
-                <Grid.Column width={6}>
+                <Grid.Column width={8}>
                   <TextField name='location'/>
                 </Grid.Column>
               </Grid.Row>
 
               <Grid.Row>
-                <Grid.Column width={12}>
+                <Grid.Column width={16}>
                   <TextField name='image'/>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row>
-                <Grid.Column width={10}>
+                <Grid.Column width={8}>
                   <LongTextField name='description'/>
                 </Grid.Column>
+                <Grid.Column width={8}>
+                  <LongTextField name='interests' />
+                </Grid.Column>
               </Grid.Row>
-
               <Grid.Row>
-                <SubmitField value='Submit' className='blue fluid'/>
+                <SubmitField value='Submit' className='fluid'/>
               </Grid.Row>
               <ErrorsField/>
               <HiddenField name='owner' />
