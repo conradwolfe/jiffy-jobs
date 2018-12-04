@@ -32,7 +32,7 @@ class EditProfile extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <Grid  container centered>
+        <Grid className='signup-background' centered>
           <Grid.Row>
             <Header as="h1" textAlign="center">Edit Your Profile</Header>
           </Grid.Row>
