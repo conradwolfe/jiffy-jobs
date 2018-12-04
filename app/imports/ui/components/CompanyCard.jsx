@@ -1,71 +1,79 @@
 import React from 'react';
-import {Card, Image, Button, Rating, Icon} from 'semantic-ui-react';
+import { Roles } from 'meteor/alanning:roles';
+import { Card, Image, Button, Rating } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import {withRouter, Link, NavLink} from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class CompanyCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onClick = this.onClick.bind(this);
-        this.deleteCallback = this.deleteCallback.bind(this);
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.deleteCallback = this.deleteCallback.bind(this);
+  }
+
+  deleteCallback(error) {
+    if (error) {
+      Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
+    } else {
+      Bert.alert({ type: 'success', message: 'Delete succeeded' });
     }
-    deleteCallback(error) {
-        if (error) {
-            Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
-        } else {
-            Bert.alert({ type: 'success', message: 'Delete succeeded' });
-        }
+  }
+
+  onClick() {
+    /* eslint-disable-next-line */
+    if (confirm("Do you really want to delete this contact?")) {
+      CompanyInfo.remove(this.props.companyinfo._id, this.deleteCallBack);
+      try {
+        Meteor.users.remove({ email: this.props.companyinfo.owner });
+      } catch (e) {
+        throw new Meteor.Error('delete', 'Failed to remove account');
+      }
     }
-    onClick() {
-        /* eslint-disable-next-line */
-        if (confirm("Do you really want to delete this contact?")) {
-            CompanyInfo.remove(this.props.companyinfo._id, this.deleteCallBack);
-        }
-    }
+  }
 
   render() {
     return (
-          <Card raised color="blue">
-            <Image size='small' centered src={this.props.companyinfo.image}/>
-            <Card.Content>
-              <Card.Header>
-                <div className = "landing-text-dark">
-                  {this.props.companyinfo.companyName}
-                </div>
-              </Card.Header>
-              <Card.Meta>
-                <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
-              </Card.Meta>
-              <Card.Meta>
-                <div className = "landing-text-gray">
-                  {this.props.companyinfo.location}
-                </div>
-              </Card.Meta>
-              <Card.Description>
-                <div className = "landing-text-dark">
-                  {this.props.companyinfo.description}
-                </div>
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <Button fluid color="blue" as={ Link } to={`/cprofile/${this.props.companyinfo._id}`}>
-                <div className = "landing-text">
-                  Visit Profile
-                </div>
-              </Button>
-            </Card.Content>
-              {(Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
-                  <Card.Content extra>
-                      <Button fluid color="red" onClick={this.onClick}>
-                          Delete Profile
-                      </Button>
-                  </Card.Content>
-              ): ""}
-          </Card>
+        <Card raised color="blue">
+          <Image size='small' centered src={this.props.companyinfo.image}/>
+          <Card.Content>
+            <Card.Header>
+              <div className="landing-text-dark">
+                {this.props.companyinfo.companyName}
+              </div>
+            </Card.Header>
+            <Card.Meta>
+              <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
+            </Card.Meta>
+            <Card.Meta>
+              <div className="landing-text-gray">
+                {this.props.companyinfo.location}
+              </div>
+            </Card.Meta>
+            <Card.Description>
+              <div className="landing-text-dark">
+                {this.props.companyinfo.description}
+              </div>
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <Button fluid color="blue" as={Link} to={`/cprofile/${this.props.companyinfo._id}`}>
+              <div className="landing-text">
+                Visit Profile
+              </div>
+            </Button>
+          </Card.Content>
+          {(Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
+              <Card.Content extra>
+                <Button fluid color="red" onClick={this.onClick}>
+                  Delete Profile
+                </Button>
+              </Card.Content>
+          ) : ''}
+        </Card>
     );
   }
 }

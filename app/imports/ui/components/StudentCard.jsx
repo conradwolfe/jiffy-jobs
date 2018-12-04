@@ -1,4 +1,5 @@
 import React from 'react';
+import { Roles } from 'meteor/alanning:roles';
 import { Card, Image, Rating, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
@@ -64,7 +65,7 @@ class StudentCard extends React.Component {
                             Delete Profile
                         </Button>
                     </Card.Content>
-                ): ""}
+                ) : ''}
             </Card>
         );
     }
