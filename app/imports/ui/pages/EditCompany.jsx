@@ -72,7 +72,7 @@ class EditCompany extends React.Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <SubmitField value='Submit' className='inverted'  />
+                  <SubmitField value='Submit' className='inverted'/>
                 </Grid.Row>
                 <Grid.Row>
                   <ErrorsField/>

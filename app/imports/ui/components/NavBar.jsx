@@ -218,18 +218,6 @@ class NavBar extends React.Component {
                               <Dropdown.Header content={"Signed in as " + this.props.currentUser}/>
                               <Dropdown.Divider/>
                               <Dropdown.Item as={NavLink} exact to="/errorpage">
-                                <Icon name="settings" className="left floated"/>
-                                <div className="landing-text-dark">
-                                  Settings
-                                </div>
-                              </Dropdown.Item>
-                              <Dropdown.Item as={NavLink} exact to="/errorpage">
-                                <Icon name="user" className="left floated"/>
-                                <div className="landing-text-dark">
-                                  Edit Profile
-                                </div>
-                              </Dropdown.Item>
-                              <Dropdown.Item as={NavLink} exact to="/errorpage">
                                 <Icon name="bell" className="left floated"/>
                                 <div className="landing-text-dark">
                                   Notifications
