@@ -12,6 +12,9 @@ const CompanySchema = new SimpleSchema({
     description: String,
     image: String,
     rating: Number,
+    interests: String,
+    phone: String,
+    website: String,
     owner: String,
 }, { tracker: Tracker });
 
