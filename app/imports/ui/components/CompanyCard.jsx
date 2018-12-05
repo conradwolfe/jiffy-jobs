@@ -25,13 +25,8 @@ class CompanyCard extends React.Component {
 
   onClick() {
     /* eslint-disable-next-line */
-    if (confirm("Do you really want to delete this contact?")) {
+    if (confirm("Do you really want to remove this card?")) {
       CompanyInfo.remove(this.props.companyinfo._id, this.deleteCallBack);
-      try {
-        Meteor.users.remove({ email: this.props.companyinfo.owner });
-      } catch (e) {
-        throw new Meteor.Error('delete', 'Failed to remove account');
-      }
     }
   }
 
