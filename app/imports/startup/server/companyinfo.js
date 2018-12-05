@@ -19,7 +19,7 @@ if (CompanyInfo.find().count() === 0) {
 /** This subscription publishes all documents regardless of user */
 Meteor.publish('CompanyInfo', function publish() {
   if (this.userId) {
-    return CompanyInfo.find({});
+    return CompanyInfo.find();
   }
   return this.ready();
 });

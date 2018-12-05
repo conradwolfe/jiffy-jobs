@@ -39,8 +39,8 @@ class App extends React.Component {
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
-              <ProtectedRoute path="/cprofile" component={CompanyProfile}/>
-              <ProtectedRoute path="/sprofile" component={StudentProfile}/>
+              <ProtectedRoute path="/cprofile/:_id" component={CompanyProfile}/>
+              <ProtectedRoute path="/sprofile/:_id" component={StudentProfile}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

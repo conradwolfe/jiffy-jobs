@@ -76,7 +76,6 @@ StudentDash.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('StudentInfo');
-  console.log(subscription);
   return {
     studentinfo: StudentInfo.find({}).fetch(),
     ready: subscription.ready(),
