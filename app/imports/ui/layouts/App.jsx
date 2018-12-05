@@ -19,7 +19,8 @@ import ErrorPage from '../pages/ErrorPage';
 import NavBar from '../components/NavBar';
 import CompanyProfile from '../pages/CompanyProfile';
 import StudentProfile from '../pages/StudentProfile';
-
+import EditCompany from '../pages/EditCompany';
+import EditStudent from '../pages/EditStudent';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -41,6 +42,8 @@ class App extends React.Component {
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
               <ProtectedRoute path="/cprofile/:_id" component={CompanyProfile}/>
               <ProtectedRoute path="/sprofile/:_id" component={StudentProfile}/>
+              <ProtectedRoute path="/cedit" component={EditCompany}/>
+              <ProtectedRoute path="/sedit" component={EditStudent}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

@@ -41,17 +41,17 @@ class CompanyProfile extends React.Component {
                   <List>
                     <List.Item>
                       <List.Icon name='mail' color='blue' />
-                      <List.Content>john@foo.com</List.Content>
+                      <List.Content>{this.props.data.owner}</List.Content>
                     </List.Item>
 
                     <List.Item>
                       <List.Icon name='globe' color='blue' />
-                      <List.Content>website</List.Content>
+                      <List.Content>{this.props.data.website}</List.Content>
                     </List.Item>
 
                     <List.Item>
                       <List.Icon name='phone' color='blue' />
-                      <List.Content>(123)-456-7890</List.Content>
+                      <List.Content>{this.props.data.phone}</List.Content>
                     </List.Item>
                   </List>
                 </Grid.Row>
@@ -95,15 +95,7 @@ class CompanyProfile extends React.Component {
                         Interests
                       </div>
                     </Header>
-                    <p> Affert iudico oblique ea vim. Pri an fierent principes, perfecto definitionem an
-                      has, in cibo accusam sit. Eam doming putent ei. No alii populo vituperatoribus
-                      duo, est mentitum voluptua ex, veri aliquip prompta sit ei. Mei brute dicam
-                      scripta eu, nisl oportere cu pro.
-                      Duo ex graeco mediocrem consequuntur, eos adhuc nostrud fuisset at. Fierent
-                      abhorreant ea sit. Te nec sint audiam concludaturque, cu quod aeterno torquatos
-                      eam. Cum dolore ignota conceptam ex, vim ne urbanitas comprehensam
-                      necessitatibus. Nam graeci consequuntur ut, congue iudicabit nam ad. Cum te
-                      purto dicat fuisset, cum te audiam prodesset comprehensam.
+                    <p> {this.props.data.interests}
                     </p>
                   </Grid.Row>
                 </Segment>
@@ -111,7 +103,7 @@ class CompanyProfile extends React.Component {
               <Grid.Column width="3" className="profile-column">
                 <Segment circular size="huge" color='blue'>
                   <Header as='h2'>Rating</Header>
-                  <Header as='h3'>94%</Header>
+                  <Header as='h3'>{this.props.data.rating}</Header>
                 </Segment>
               </Grid.Column>
             </Grid>

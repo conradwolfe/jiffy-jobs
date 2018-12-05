@@ -12,6 +12,9 @@ const StudentSchema = new SimpleSchema({
     gradyear: String,
     description: String,
     image: String,
+    interests: String,
+    phone: String,
+    website: String,
     owner: String,
 }, { tracker: Tracker });
 
