@@ -11,7 +11,6 @@ function createUser(firstname, lastname, email, password, usertype) {
     firstname: firstname,
     lastname: lastname,
     email: email,
-    usertype: usertype,
     password: password,
   });
   if (usertype === 'admin') {
