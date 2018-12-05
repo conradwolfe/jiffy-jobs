@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
 import { CompanyInfo } from '../../api/companyinfo/companyinfo.js';
 
 /** Initialize the database with a default data document. */
@@ -18,7 +19,6 @@ if (CompanyInfo.find().count() === 0) {
 /** This subscription publishes all documents regardless of user */
 Meteor.publish('CompanyInfo', function publish() {
   if (this.userId) {
-
     return CompanyInfo.find({});
   }
   return this.ready();
@@ -28,7 +28,7 @@ Meteor.publish('CompanyInfo', function publish() {
 Meteor.publish('CompanyProfileInfo', function publish() {
   const username = Meteor.users.findOne(this.userId).username;
   if (this.userId && Roles.userIsInRole(this.userId, 'company')) {
-    return CompanyInfo.find({owner: username});
+    return CompanyInfo.find({ owner: username });
   }
   return this.ready();
 });

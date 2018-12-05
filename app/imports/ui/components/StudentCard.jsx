@@ -1,10 +1,33 @@
 import React from 'react';
+import { Roles } from 'meteor/alanning:roles';
 import { Card, Image, Rating, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { Bert } from 'meteor/themeteorchef:bert';
+import { Meteor } from 'meteor/meteor';
+import { StudentInfo } from '/imports/api/studentinfo/studentinfo';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudentCard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+        this.deleteCallback = this.deleteCallback.bind(this);
+    }
+    deleteCallback(error) {
+        if (error) {
+            Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
+        } else {
+            Bert.alert({ type: 'success', message: 'Delete succeeded' });
+        }
+    }
+    onClick() {
+        /* eslint-disable-next-line */
+        if (confirm("Do you really want to delete this contact?")) {
+            StudentInfo.remove(this.props.studentinfo._id, this.deleteCallBack);
+        }
+    }
+
     render() {
         return (
             <Card raised color="blue">
@@ -30,12 +53,19 @@ class StudentCard extends React.Component {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Button fluid color="blue" as={ Link } to={`/edit/${this.props.studentinfo._id}`}>
+                    <Button fluid color="blue" as={ Link } to={`/sprofile/${this.props.studentinfo._id}`}>
                         <div className = "landing-text">
                             Visit Profile
                         </div>
                     </Button>
                 </Card.Content>
+                {(Roles.userIsInRole(Meteor.userId(), 'admin')) ? (
+                    <Card.Content extra>
+                        <Button fluid color="red" onClick={this.onClick}>
+                            Delete Profile
+                        </Button>
+                    </Card.Content>
+                ) : ''}
             </Card>
         );
     }

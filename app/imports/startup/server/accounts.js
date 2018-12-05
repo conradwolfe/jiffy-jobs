@@ -3,7 +3,6 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
 
 /* eslint-disable no-console */
-
 function createUser(firstname, lastname, email, password, usertype) {
   console.log(`  Creating user ${email}.`);
   const userID = Accounts.createUser({
@@ -11,7 +10,6 @@ function createUser(firstname, lastname, email, password, usertype) {
     firstname: firstname,
     lastname: lastname,
     email: email,
-    usertype: usertype,
     password: password,
   });
   if (usertype === 'admin') {
