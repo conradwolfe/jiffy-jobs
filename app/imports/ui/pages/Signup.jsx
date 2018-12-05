@@ -1,7 +1,7 @@
 import React from 'react';
-import { Roles } from 'meteor/alanning:roles';
-import { Link, NavLink, withRouter } from 'react-router-dom';
-import { Button, Container, Divider, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Meteor } from 'meteor/meteor';
+import { Container, Divider, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import Footer from '../components/Footer';
 
@@ -28,30 +28,13 @@ export default class Signup extends React.Component {
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
     const { firstname, lastname, email, password, usertype } = this.state;
-    console.log(`  Creating user ${email}.`);
-    const userID = Accounts.createUser({
-      username: email,
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: password,
-    }, (err) => {
+    Meteor.call('serverCreateUser', firstname, lastname, email, password, usertype, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
-        // browserHistory.push('/login');
+        this.setState({ error: '', redirectToReferer: true });
       }
     });
-    console.log(userID);
-    if (usertype === 'admin') {
-      Roles.addUsersToRoles(userID, 'admin');
-    }
-    if (usertype === 'student') {
-      Roles.addUsersToRoles(userID, 'student');
-    }
-    if (usertype === 'company') {
-      Roles.addUsersToRoles(userID, 'company');
-    }
   }
 
   /** Display the signup form. */
@@ -59,19 +42,19 @@ export default class Signup extends React.Component {
     const options = [{ key: 's', text: 'Student', value: 'student' },
       { key: 'c', text: 'Company', value: 'company' }];
     return (
-        <div className="signup-background">
+        <div className = "signup-background">
           <Container>
             <Grid textAlign="center" verticalAlign="middle" centered columns={1}>
               <Grid.Column>
                 <Header as="h2" textAlign="center">
-                  <div className="signup-header">
+                  <div className = "signup-header">
                     Register for an account
                   </div>
                 </Header>
                 <Form onSubmit={this.handleSubmit}>
                   <Segment basic>
                     <Form.Field>
-                      <div className="signup-font">
+                      <div className = "signup-font">
                         <label>First Name</label>
                       </div>
                       <Form.Input transparent
@@ -86,7 +69,7 @@ export default class Signup extends React.Component {
                     </Form.Field>
                     <Divider/>
                     <Form.Field>
-                      <div className="signup-font">
+                      <div className = "signup-font">
                         <label>Last Name</label>
                       </div>
                       <Form.Input transparent
@@ -101,7 +84,7 @@ export default class Signup extends React.Component {
                     </Form.Field>
                     <Divider/>
                     <Form.Field>
-                      <div className="signup-font">
+                      <div className = "signup-font">
                         <label>Email</label>
                       </div>
                       <Form.Input transparent
@@ -116,7 +99,7 @@ export default class Signup extends React.Component {
                     </Form.Field>
                     <Divider/>
                     <Form.Field>
-                      <div className="signup-font">
+                      <div className = "signup-font">
                         <label>Password</label>
                       </div>
                       <Form.Input transparent
@@ -131,7 +114,7 @@ export default class Signup extends React.Component {
                     </Form.Field>
                     <Divider/>
                     <Form.Field>
-                      <div className="signup-font">
+                      <div className = "signup-font">
                         <label>User Type</label>
                       </div>
                       <Form.Select transparent
@@ -147,7 +130,7 @@ export default class Signup extends React.Component {
                     </Form.Field>
                     <Divider/>
                     <Form.Field>
-                      <div className="signup-font">
+                      <div className = "signup-font">
                         <label>I agree to the Terms and Conditions</label>
                       </div>
                       <Form.Checkbox
@@ -156,12 +139,12 @@ export default class Signup extends React.Component {
                     </Form.Field>
                     <Divider/>
                     <Form.Field>
-                      <Form.Button centered fluid content="Submit" exact to="/landing"/>
+                      <Form.Button centered fluid content="Submit"/>
                     </Form.Field>
                   </Segment>
                 </Form>
                 <Message>
-                  Already have an account? Login <Link to="/signin">here</Link>
+                  Already have an account? Login  <Link to="/signin">here</Link>
                 </Message>
                 {this.state.error === '' ? (
                     ''
