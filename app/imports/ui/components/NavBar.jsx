@@ -4,16 +4,38 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Header, Icon, Form, Dropdown } from 'semantic-ui-react';
+import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
+import { StudentInfo } from '/imports/api/studentinfo/studentinfo';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.findProfile = this.findProfile.bind(this);
+  }
+
+  findProfile() {
+    if (Roles.userIsInRole(Meteor.userId(), 'company')) {
+      if (this.props.ready) {
+        const companyfetch = CompanyInfo.find({}).fetch()[0];
+        return companyfetch._id;
+      }
+    }
+    if (Roles.userIsInRole(Meteor.userId(), 'student')) {
+      if (this.props.ready) {
+        const studentfetch = StudentInfo.find({}).fetch()[0];
+        return studentfetch._id;
+      }
+    }
+    return '';
+  }
+
   render() {
     const menuStyle = {
       marginBottom: '10px',
       backgroundColor: 'white',
     };
-
     return (
         <div>
           {(() => {
@@ -39,7 +61,7 @@ class NavBar extends React.Component {
                         </Form.Group>
                       </Form>
                     </Menu.Item>
-                    <Menu.Item compact position="right" as={NavLink} exact to="/cprofile">
+                    <Menu.Item compact position="right" as={NavLink} exact to={`/cprofile/${this.findProfile()}`}>
                       <Icon size="large" name="user circle"/></Menu.Item>
                     <Menu.Item compact as={NavLink} exact to="/sdash">
                       <Icon size="large" name="suitcase"/></Menu.Item>
@@ -110,7 +132,7 @@ class NavBar extends React.Component {
                         </Form.Group>
                       </Form>
                     </Menu.Item>
-                    <Menu.Item compact position="right" as={NavLink} exact to="/sprofile">
+                    <Menu.Item compact position="right" as={NavLink} exact to={`/sprofile/${this.findProfile()}`}>
                       <Icon size="large" name="user circle"/></Menu.Item>
                     <Menu.Item compact as={NavLink} exact to="/cdash">
                       <Icon size="large" name="suitcase"/></Menu.Item>
@@ -302,12 +324,18 @@ class NavBar extends React.Component {
 /** Declare the types of all properties. */
 NavBar.propTypes = {
   currentUser: PropTypes.string,
+  ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-const NavBarContainer = withTracker(() => ({
-  currentUser: Meteor.user() ? Meteor.user().username : '',
-}))(NavBar);
+const NavBarContainer = withTracker(() => {
+  const subscription1 = Meteor.subscribe('CompanyProfileInfo');
+  const subscription2 = Meteor.subscribe('StudentProfileInfo');
+  return {
+    currentUser: Meteor.user() ? Meteor.user().username : '',
+    ready: (subscription1.ready() && subscription2.ready()),
+  };
+})(NavBar);
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
 export default withRouter(NavBarContainer);

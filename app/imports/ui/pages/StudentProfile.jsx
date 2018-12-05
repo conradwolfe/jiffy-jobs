@@ -122,14 +122,16 @@ class StudentProfile extends React.Component {
 }
 
 StudentProfile.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
-export default withTracker(() => {
-  const subscription = Meteor.subscribe('StudentProfileInfo');
+export default withTracker(({ match }) => {
+  const documentId = match.params._id;
+  const subscription = Meteor.subscribe('StudentInfo');
+  const stud = StudentInfo.findOne(documentId);
   return {
-    data: StudentInfo.find({}).fetch()[0],
+    data: stud,
     ready: subscription.ready(),
   };
 })(StudentProfile);

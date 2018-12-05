@@ -14,6 +14,7 @@ class StudentCard extends React.Component {
         this.onClick = this.onClick.bind(this);
         this.deleteCallback = this.deleteCallback.bind(this);
     }
+
     deleteCallback(error) {
         if (error) {
             Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` });
@@ -21,6 +22,7 @@ class StudentCard extends React.Component {
             Bert.alert({ type: 'success', message: 'Delete succeeded' });
         }
     }
+
     onClick() {
         /* eslint-disable-next-line */
         if (confirm("Do you really want to delete this contact?")) {

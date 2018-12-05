@@ -3,7 +3,6 @@ import { Grid, Image, Header, Divider, Loader, List, Icon, Segment, Button, Labe
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-// import {withRouter, NavLink} from 'react-router-dom';
 import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
 
 /** A simple static component to render some text for the profile page. */
@@ -124,14 +123,16 @@ class CompanyProfile extends React.Component {
 }
 
 CompanyProfile.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
-export default withTracker(() => {
-  const subscription = Meteor.subscribe('CompanyProfileInfo');
+export default withTracker(({ match }) => {
+  const documentId = match.params._id;
+  const subscription = Meteor.subscribe('CompanyInfo');
+  const comp = CompanyInfo.findOne(documentId);
   return {
-    data: CompanyInfo.find({}).fetch()[0],
+    data: comp,
     ready: subscription.ready(),
   };
 })(CompanyProfile);

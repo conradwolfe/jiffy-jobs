@@ -41,7 +41,7 @@ class CompanyCard extends React.Component {
               </div>
             </Card.Header>
             <Card.Meta>
-              <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
+              <Rating icon='star' maxRating={5} defaultRating={this.props.companyinfo.rating} disabled></Rating>
             </Card.Meta>
             <Card.Meta>
               <div className="landing-text-gray">
@@ -55,7 +55,7 @@ class CompanyCard extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Button fluid color="blue" as={Link} to={`/cprofile/${this.props.companyinfo._id}`}>
+            <Button fluid color="blue" as={ Link } to={`/cprofile/${this.props.companyinfo._id}`}>
               <div className="landing-text">
                 Visit Profile
               </div>
