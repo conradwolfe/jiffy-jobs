@@ -47,12 +47,12 @@ class CompanyProfile extends React.Component {
 
                     <List.Item>
                       <List.Icon name='globe' color='blue' />
-                      <List.Content>website</List.Content>
+                      <List.Content>{this.props.data.website}</List.Content>
                     </List.Item>
 
                     <List.Item>
                       <List.Icon name='phone' color='blue' />
-                      <List.Content>(123)-456-7890</List.Content>
+                      <List.Content>{this.props.data.phone}</List.Content>
                     </List.Item>
                   </List>
                 </Grid.Row>
@@ -104,7 +104,7 @@ class CompanyProfile extends React.Component {
               <Grid.Column width="3" className="profile-column">
                 <Segment circular size="huge" color='blue'>
                   <Header as='h2'>Rating</Header>
-                  <Header as='h3'>94%</Header>
+                  <Header as='h3'>{this.props.data.rating}</Header>
                 </Segment>
               </Grid.Column>
             </Grid>

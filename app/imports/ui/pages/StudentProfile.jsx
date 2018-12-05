@@ -45,12 +45,12 @@ class StudentProfile extends React.Component {
 
                       <List.Item>
                         <List.Icon name='globe' color='blue' />
-                        <List.Content>website</List.Content>
+                        <List.Content>{this.props.data.website}</List.Content>
                       </List.Item>
 
                       <List.Item>
                         <List.Icon name='phone' color='blue' />
-                        <List.Content>(123)-456-7890</List.Content>
+                        <List.Content>{this.props.data.phone}</List.Content>
                       </List.Item>
                     </List>
                   </Grid.Row>
@@ -94,15 +94,7 @@ class StudentProfile extends React.Component {
                         Interests
                       </div>
                     </Header>
-                    <p> Affert iudico oblique ea vim. Pri an fierent principes, perfecto definitionem an
-                      has, in cibo accusam sit. Eam doming putent ei. No alii populo vituperatoribus
-                      duo, est mentitum voluptua ex, veri aliquip prompta sit ei. Mei brute dicam
-                      scripta eu, nisl oportere cu pro.
-                      Duo ex graeco mediocrem consequuntur, eos adhuc nostrud fuisset at. Fierent
-                      abhorreant ea sit. Te nec sint audiam concludaturque, cu quod aeterno torquatos
-                      eam. Cum dolore ignota conceptam ex, vim ne urbanitas comprehensam
-                      necessitatibus. Nam graeci consequuntur ut, congue iudicabit nam ad. Cum te
-                      purto dicat fuisset, cum te audiam prodesset comprehensam.
+                    <p> {this.props.data.interests}
                     </p>
                   </Grid.Row>
                 </Segment>
