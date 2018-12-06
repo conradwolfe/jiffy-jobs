@@ -1,18 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Container, Divider, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import Footer from '../components/Footer';
+import PropTypes from 'prop-types';
+import Signin from './Signin';
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
  */
-export default class Signup extends React.Component {
+class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { firstname: '', lastname: '', email: '', password: '', usertype: '', error: '' };
+    this.state = { firstname: '', lastname: '', email: '', password: '',
+      usertype: '', error: '', redirectToReferer: false };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +29,6 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
-    //Meteor.Router.to('/pages/Signin');
     const { firstname, lastname, email, password, usertype } = this.state;
     Meteor.call('serverCreateUser', firstname, lastname, email, password, usertype, (err) => {
       if (err) {
@@ -39,6 +41,11 @@ export default class Signup extends React.Component {
 
   /** Display the signup form. */
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    // if correct authentication, redirect to page instead of login screen
+    if (this.state.redirectToReferer) {
+      return <Redirect to={from}/>;
+    }
     const options = [{ key: 's', text: 'Student', value: 'student' },
       { key: 'c', text: 'Company', value: 'company' }];
     return (
@@ -163,3 +170,8 @@ export default class Signup extends React.Component {
     );
   }
 }
+
+Signup.propTypes = {
+  location: PropTypes.object,
+};
+export default Signup;
