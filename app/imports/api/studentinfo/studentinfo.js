@@ -12,6 +12,7 @@ const StudentSchema = new SimpleSchema({
     gradyear: String,
     description: String,
     image: String,
+    rating: [Number],
     interests: String,
     phone: String,
     website: String,

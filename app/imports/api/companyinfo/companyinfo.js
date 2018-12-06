@@ -11,7 +11,7 @@ const CompanySchema = new SimpleSchema({
     location: String,
     description: String,
     image: String,
-    rating: Number,
+    rating: [Number],
     interests: String,
     phone: String,
     website: String,
