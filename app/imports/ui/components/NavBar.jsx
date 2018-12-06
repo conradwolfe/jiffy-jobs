@@ -7,14 +7,18 @@ import { Menu, Header, Icon, Form, Dropdown } from 'semantic-ui-react';
 import { CompanyInfo, CompanyIndex } from '/imports/api/companyinfo/companyinfo';
 import { StudentInfo, StudentIndex } from '/imports/api/studentinfo/studentinfo';
 import { Roles } from 'meteor/alanning:roles';
-import { Index, MinimongoEngine } from 'meteor/easy:search'
+import { Index, MinimongoEngine } from 'meteor/easy:search';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.findProfile = this.findProfile.bind(this);
-    this.state = { redirectToReferer: false };
+    this.state = { searcher: '', error: '', redirectToReferer: false };
+    this.handleCSearch = this.handleCSearch.bind(this);
+    this.handleSSearch = this.handleSSearch.bind(this);
+    this.handleSChange = this.handleSChange.bind(this);
+    this.handleCChange = this.handleCChange.bind(this);
   }
 
   findProfile() {
@@ -33,12 +37,24 @@ class NavBar extends React.Component {
     return '';
   }
 
+  handleCChange(e, { name, value }) {
+    this.setState({ [name]: value });
+  }
+
+  handleSChange(e, { name, value }) {
+    this.setState({ [name]: value });
+  }
+
   handleSSearch() {
-    this.state = { redirectToReferer: true };
+    const { searcher } = this.state;
+    console.log(searcher);
+    this.setState({ error: '', redirectToReferer: true });
   }
 
   handleCSearch() {
-    this.state = { redirectToReferer: true };
+    const { searcher } = this.state;
+    console.log(searcher);
+    this.setState({ error: '', redirectToReferer: true });
   }
 
   render() {
@@ -51,7 +67,8 @@ class NavBar extends React.Component {
           {(() => {
             if (Roles.userIsInRole(Meteor.userId(), 'company')) {
               if (this.state.redirectToReferer) {
-                return <Redirect to={'/CompanySearch'}/>;
+                this.setState({ error: '', redirectToReferer: false });
+                return <Redirect to={'/csearch'}/>;
               }
               return (
                   <Menu borderless style={menuStyle} attached="top">
@@ -65,9 +82,10 @@ class NavBar extends React.Component {
                             <Form.Input
                                 icon="search"
                                 iconPosition="left"
-                                name="search"
+                                name="searcher"
                                 type="dark-text"
                                 placeholder='Search'
+                                onChange={this.handleCChange}
                             />
                           </Form.Field>
                           <Form.Button content="Search"/>
@@ -125,7 +143,8 @@ class NavBar extends React.Component {
             }
             if (Roles.userIsInRole(Meteor.userId(), 'student')) {
               if (this.state.redirectToReferer) {
-                return <Redirect to={'/StudentSearch'}/>;
+                this.setState({ error: '', redirectToReferer: false });
+                return <Redirect to={'/ssearch'}/>;
               }
               return (
                   <Menu borderless style={menuStyle} attached="top">
@@ -139,10 +158,10 @@ class NavBar extends React.Component {
                             <Form.Input
                                 icon="search"
                                 iconPosition="left"
-                                name="search"
+                                name="searcher"
                                 type="dark-text"
                                 placeholder='Search'
-                                onChange={this.handleChange}
+                                onChange={this.handleSChange}
                             />
                           </Form.Field>
                           <Form.Button content="Submit"/>
