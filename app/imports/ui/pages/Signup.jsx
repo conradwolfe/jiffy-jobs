@@ -26,7 +26,7 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
-    Meteor.Router.to('/pages/Signin');
+    //Meteor.Router.to('/pages/Signin');
     const { firstname, lastname, email, password, usertype } = this.state;
     Meteor.call('serverCreateUser', firstname, lastname, email, password, usertype, (err) => {
       if (err) {
