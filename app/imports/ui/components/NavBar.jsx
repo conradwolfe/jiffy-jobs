@@ -5,7 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink,  Link, Redirect } from 'react-router-dom';
 import { Menu, Header, Icon, Form, Dropdown } from 'semantic-ui-react';
 import { CompanyInfo, CompanyIndex } from '/imports/api/companyinfo/companyinfo';
-import { StudentInfo, StudentInfo } from '/imports/api/studentinfo/studentinfo';
+import { StudentInfo, StudentIndex } from '/imports/api/studentinfo/studentinfo';
 import { Roles } from 'meteor/alanning:roles';
 import { Index, MinimongoEngine } from 'meteor/easy:search'
 
@@ -14,6 +14,7 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.findProfile = this.findProfile.bind(this);
+    this.state = { redirectToReferer: false };
   }
 
   findProfile() {
@@ -33,11 +34,11 @@ class NavBar extends React.Component {
   }
 
   handleSSearch() {
-
+    this.state = { redirectToReferer: true };
   }
 
   handleCSearch() {
-
+    this.state = { redirectToReferer: true };
   }
 
   render() {
