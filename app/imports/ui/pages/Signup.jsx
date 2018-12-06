@@ -44,7 +44,7 @@ class Signup extends React.Component {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
-      return <Redirect to={from}/>;
+      return <Redirect to={'/signin'}/>;
     }
     const options = [{ key: 's', text: 'Student', value: 'student' },
       { key: 'c', text: 'Company', value: 'company' }];
