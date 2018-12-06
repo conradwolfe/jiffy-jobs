@@ -243,22 +243,7 @@ class NavBar extends React.Component {
                   <Menu.Item compact as={NavLink} activeClassName="" exact to="/">
                     <Header as='h2'>JJ</Header>
                   </Menu.Item>
-                  <Menu.Item compact>
-                    <Form>
-                      <Form.Group>
-                        <Form.Field>
-                          <Form.Input
-                              icon="search"
-                              iconPosition="left"
-                              name="search"
-                              type="dark-text"
-                              placeholder='Search'
-                          />
-                        </Form.Field>
-                        <Form.Button content="Search"/>
-                      </Form.Group>
-                    </Form>
-                  </Menu.Item>
+
                   <Menu.Item position="right" compact>
                     {this.props.currentUser === '' ? (
                         <Dropdown icon='th' floating labeled button>
