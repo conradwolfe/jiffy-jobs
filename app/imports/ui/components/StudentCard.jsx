@@ -26,7 +26,7 @@ class StudentCard extends React.Component {
 
   onClick() {
     /* eslint-disable-next-line */
-    if (confirm("Do you really want to delete this contact?")) {
+    if (confirm("Do you really want to remove this card?")) {
       StudentInfo.remove(this.props.studentinfo._id, this.deleteCallBack);
     }
   }
@@ -51,7 +51,6 @@ class StudentCard extends React.Component {
             </Card.Header>
             <Card.Meta>
               <Rating icon='star' maxRating={5} defaultRating={this.findRating()} disabled/>
-              <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
             </Card.Meta>
             <Card.Meta>
               <div className="landing-text-gray">
