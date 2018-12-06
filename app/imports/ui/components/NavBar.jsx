@@ -116,22 +116,6 @@ class NavBar extends React.Component {
                     <Menu.Item compact as={NavLink} activeClassName="" exact to="/">
                       <Header as='h2'>JJ</Header>
                     </Menu.Item>
-                    <Menu.Item compact>
-                      <Form>
-                        <Form.Group>
-                          <Form.Field>
-                            <Form.Input
-                                icon="search"
-                                iconPosition="left"
-                                name="search"
-                                type="dark-text"
-                                placeholder='Search'
-                            />
-                          </Form.Field>
-                          <Form.Button content="Search"/>
-                        </Form.Group>
-                      </Form>
-                    </Menu.Item>
                     <Menu.Item compact position="right" as={NavLink} exact to={`/sprofile/${this.findProfile()}`}>
                       <Icon size="large" name="user circle"/></Menu.Item>
                     <Menu.Item compact as={NavLink} exact to="/cdash">
@@ -186,22 +170,6 @@ class NavBar extends React.Component {
                   <Menu borderless style={menuStyle} attached="top">
                     <Menu.Item compact as={NavLink} activeClassName="" exact to="/">
                       <Header as='h2'>JJ</Header>
-                    </Menu.Item>
-                    <Menu.Item compact>
-                      <Form>
-                        <Form.Group>
-                          <Form.Field>
-                            <Form.Input
-                                icon="search"
-                                iconPosition="left"
-                                name="search"
-                                type="dark-text"
-                                placeholder='Search'
-                            />
-                          </Form.Field>
-                          <Form.Button content="Search"/>
-                        </Form.Group>
-                      </Form>
                     </Menu.Item>
                     <Menu.Item compact position="right" as={NavLink} exact to="/adash">
                       <Icon size="large" name="suitcase"/></Menu.Item>
