@@ -8,9 +8,6 @@ import Landing from '../pages/Landing';
 import CompanyDash from '../pages/CompanyDash';
 import StudentDash from '../pages/StudentDash';
 import AdminDash from '../pages/AdminDash';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -35,10 +32,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/cdash" component={CompanyDash}/>
               <ProtectedRoute path="/sdash" component={StudentDash}/>
-              <ProtectedRoute path="/adash" component={AdminDash}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/adash" component={AdminDash}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/errorpage" component={ErrorPage}/>
               <ProtectedRoute path="/cprofile/:_id" component={CompanyProfile}/>
