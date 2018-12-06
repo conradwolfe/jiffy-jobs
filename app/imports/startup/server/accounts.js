@@ -43,10 +43,11 @@ Meteor.methods({
       const desc = 'Fill me in';
       const grdyr = 2000;
       const img = 'https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg';
+      const rating = [];
       const inter = 'fill me in';
       const phonenum = '000-000-0000';
       const webs = 'something.com';
-      StudentInfo.insert({ firstName: firstname, lastName: lastname, gradyear: grdyr, email: email, description: desc, image: img, interests: inter, phone: phonenum, website: webs, owner: owner });
+      StudentInfo.insert({ firstName: firstname, lastName: lastname, gradyear: grdyr, email: email, description: desc, image: img, interests: inter, rating: rating, phone: phonenum, website: webs, owner: owner });
     }
     if (usertype === 'company') {
       Roles.addUsersToRoles(userID, 'company');
@@ -54,9 +55,9 @@ Meteor.methods({
       const loc = 'Somewhere';
       const owner = email;
       const desc = 'fill me in';
-      const rating = 100;
       const img = 'https://images.homedepot-static.com/productImages/af68091e-a496-426c-858e-20ea60e01f02/svn/ge-pre-lit-christmas-trees-17167hd-64_1000.jpg';
       const inter = 'fill me in';
+      const rating = [];
       const phonenum = '000-000-0000';
       const webs = 'something.com';
       CompanyInfo.insert({ companyName: compName, location: loc, description: desc, image: img, rating: rating, interests: inter, phone: phonenum, website: webs, owner: owner });
