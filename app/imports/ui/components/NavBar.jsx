@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { withRouter, NavLink } from 'react-router-dom';
+import { withRouter, NavLink,  Link, Redirect } from 'react-router-dom';
 import { Menu, Header, Icon, Form, Dropdown } from 'semantic-ui-react';
 import { CompanyInfo, CompanyIndex } from '/imports/api/companyinfo/companyinfo';
-import { StudentInfo } from '/imports/api/studentinfo/studentinfo';
+import { StudentInfo, StudentInfo } from '/imports/api/studentinfo/studentinfo';
 import { Roles } from 'meteor/alanning:roles';
 import { Index, MinimongoEngine } from 'meteor/easy:search'
 
@@ -49,6 +49,9 @@ class NavBar extends React.Component {
         <div>
           {(() => {
             if (Roles.userIsInRole(Meteor.userId(), 'company')) {
+              if (this.state.redirectToReferer) {
+                return <Redirect to={'/CompanySearch'}/>;
+              }
               return (
                   <Menu borderless style={menuStyle} attached="top">
                     <Menu.Item compact as={NavLink} activeClassName="" exact to="/">
@@ -120,6 +123,9 @@ class NavBar extends React.Component {
               );
             }
             if (Roles.userIsInRole(Meteor.userId(), 'student')) {
+              if (this.state.redirectToReferer) {
+                return <Redirect to={'/StudentSearch'}/>;
+              }
               return (
                   <Menu borderless style={menuStyle} attached="top">
                     <Menu.Item compact as={NavLink} activeClassName="" exact to="/">
