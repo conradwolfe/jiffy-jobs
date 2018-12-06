@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
+
 import { Container, Divider, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import Footer from '../components/Footer';
@@ -27,6 +28,7 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
+    Meteor.Router.to('/pages/Signin');
     const { firstname, lastname, email, password, usertype } = this.state;
     Meteor.call('serverCreateUser', firstname, lastname, email, password, usertype, (err) => {
       if (err) {
