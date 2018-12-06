@@ -51,6 +51,7 @@ class StudentCard extends React.Component {
             </Card.Header>
             <Card.Meta>
               <Rating icon='star' maxRating={5} defaultRating={this.findRating()} disabled/>
+              <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
             </Card.Meta>
             <Card.Meta>
               <div className="landing-text-gray">

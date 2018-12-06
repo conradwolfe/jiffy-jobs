@@ -45,7 +45,9 @@ class AddStuff extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={this.submit}>
+            <AutoForm ref={(ref) => {
+              this.formRef = ref;
+            }} schema={StuffSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='name'/>
                 <NumField name='quantity' decimal={false}/>

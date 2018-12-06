@@ -42,7 +42,7 @@ class EditStuff extends React.Component {
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
-                <HiddenField name='owner' />
+                <HiddenField name='owner'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

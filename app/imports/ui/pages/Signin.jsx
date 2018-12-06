@@ -47,49 +47,49 @@ class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-         <div>
-          <div className = "signin-background">
+        <div>
+          <div className="signin-background">
             <Container>
               <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
                 <Grid.Column>
-                    <Header as="h2" textAlign="center">
-                      <div className = "login-header">
-                        Login to your account
-                      </div>
-                    </Header>
-                    <Form onSubmit={this.handleSubmit}>
-                      <Segment basic>
-                          <Divider/>
-                          <Form.Field>
-                            <div className = "login-font">
-                              <label>Email Address</label>
-                            </div>
-                            <Form.Input transparent
-                                icon="user"
-                                iconPosition="left"
-                                name="email"
-                                type="text"
-                                placeholder = 'Email'
-                                onChange={this.handleChange}
-                            />
-                          </Form.Field>
-                          <Divider/>
-                          <Form.Field>
-                            <div className = "login-font">
-                              <label>Password</label>
-                            </div>
-                            <Form.Input transparent
-                                icon="lock"
-                                iconPosition="left"
-                                name="password"
-                                placeholder="Password"
-                                type="password"
-                                onChange={this.handleChange}
-                            />
-                          </Form.Field>
-                          <Form.Button centered fluid content="Login"/>
-                      </Segment>
-                    </Form>
+                  <Header as="h2" textAlign="center">
+                    <div className="login-header">
+                      Login to your account
+                    </div>
+                  </Header>
+                  <Form onSubmit={this.handleSubmit}>
+                    <Segment basic>
+                      <Divider/>
+                      <Form.Field>
+                        <div className="login-font">
+                          <label>Email Address</label>
+                        </div>
+                        <Form.Input transparent
+                                    icon="user"
+                                    iconPosition="left"
+                                    name="email"
+                                    type="text"
+                                    placeholder='Email'
+                                    onChange={this.handleChange}
+                        />
+                      </Form.Field>
+                      <Divider/>
+                      <Form.Field>
+                        <div className="login-font">
+                          <label>Password</label>
+                        </div>
+                        <Form.Input transparent
+                                    icon="lock"
+                                    iconPosition="left"
+                                    name="password"
+                                    placeholder="Password"
+                                    type="password"
+                                    onChange={this.handleChange}
+                        />
+                      </Form.Field>
+                      <Form.Button centered fluid content="Login"/>
+                    </Segment>
+                  </Form>
 
                   {this.state.error === '' ? (
                       ''

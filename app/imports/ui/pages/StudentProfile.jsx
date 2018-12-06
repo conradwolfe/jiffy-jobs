@@ -43,21 +43,21 @@ class StudentProfile extends React.Component {
         <div>
           <div className="profile-page">
             <Grid>
-              <Grid.Column width={4} className='profile-column' >
+              <Grid.Column width={4} className='profile-column'>
                 <Segment>
                   <Grid.Row>
                     <Image rounded size='medium'
                            src={this.props.data.image}/>
                   </Grid.Row>
-                  <Divider hidden />
+                  <Divider hidden/>
                   <Grid.Row>
                     <div>
-                      <Icon name='graduation cap' color='blue' />
+                      <Icon name='graduation cap' color='blue'/>
                       {this.props.data.gradyear}
                     </div>
-                    <Divider hidden />
+                    <Divider hidden/>
                   </Grid.Row>
-                  <Divider hidden />
+                  <Divider hidden/>
                   <Grid.Row>
                     <Header size="huge" as='h2'>
                       <div className="landing-text-dark">
@@ -66,26 +66,26 @@ class StudentProfile extends React.Component {
                     </Header>
                     <List>
                       <List.Item>
-                        <List.Icon name='mail' color='blue' />
+                        <List.Icon name='mail' color='blue'/>
                         <List.Content>{this.props.data.owner}</List.Content>
                       </List.Item>
 
                       <List.Item>
-                        <List.Icon name='globe' color='blue' />
+                        <List.Icon name='globe' color='blue'/>
                         <List.Content>{this.props.data.website}</List.Content>
                       </List.Item>
 
                       <List.Item>
-                        <List.Icon name='phone' color='blue' />
+                        <List.Icon name='phone' color='blue'/>
                         <List.Content>{this.props.data.phone}</List.Content>
                       </List.Item>
                     </List>
                   </Grid.Row>
-                  <Divider hidden />
+                  <Divider hidden/>
                   <Grid.Row>
                     <Button as='div' labelPosition='right'>
                       <Button basic color='blue'>
-                        <Icon name='add' />
+                        <Icon name='add'/>
                       </Button>
                       <Label as='a' basic color='blue' pointing='left'>
                         Add to List
