@@ -18,6 +18,8 @@ import CompanyProfile from '../pages/CompanyProfile';
 import StudentProfile from '../pages/StudentProfile';
 import EditCompany from '../pages/EditCompany';
 import EditStudent from '../pages/EditStudent';
+import CompanySearch from '../pages/CompanySearch';
+import StudentSearch from '../pages/StudentSearch';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,6 +41,8 @@ class App extends React.Component {
               <ProtectedRoute path="/sprofile/:_id" component={StudentProfile}/>
               <ProtectedRoute path="/cedit" component={EditCompany}/>
               <ProtectedRoute path="/sedit" component={EditStudent}/>
+              <ProtectedRoute path="/csearch" component={CompanySearch}/>
+              <ProtectedRoute path="/ssearch" component={StudentSearch}/>
               <Route component={NotFound}/>
             </Switch>
           </div>

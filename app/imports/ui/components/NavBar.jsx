@@ -4,9 +4,10 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Header, Icon, Form, Dropdown } from 'semantic-ui-react';
-import { CompanyInfo } from '/imports/api/companyinfo/companyinfo';
+import { CompanyInfo, CompanyIndex } from '/imports/api/companyinfo/companyinfo';
 import { StudentInfo } from '/imports/api/studentinfo/studentinfo';
 import { Roles } from 'meteor/alanning:roles';
+import { Index, MinimongoEngine } from 'meteor/easy:search'
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
@@ -31,6 +32,14 @@ class NavBar extends React.Component {
     return '';
   }
 
+  handleSSearch() {
+
+  }
+
+  handleCSearch() {
+
+  }
+
   render() {
     const menuStyle = {
       marginBottom: '10px',
@@ -46,7 +55,7 @@ class NavBar extends React.Component {
                       <Header as='h2'>JJ</Header>
                     </Menu.Item>
                     <Menu.Item compact>
-                      <Form>
+                      <Form onSubmit={this.handleCSearch}>
                         <Form.Group>
                           <Form.Field>
                             <Form.Input
@@ -117,7 +126,7 @@ class NavBar extends React.Component {
                       <Header as='h2'>JJ</Header>
                     </Menu.Item>
                     <Menu.Item compact>
-                      <Form>
+                      <Form onSubmit={this.handleSSearch}>
                         <Form.Group>
                           <Form.Field>
                             <Form.Input
@@ -126,9 +135,10 @@ class NavBar extends React.Component {
                                 name="search"
                                 type="dark-text"
                                 placeholder='Search'
+                                onChange={this.handleChange}
                             />
                           </Form.Field>
-                          <Form.Button content="Search"/>
+                          <Form.Button content="Submit"/>
                         </Form.Group>
                       </Form>
                     </Menu.Item>

@@ -1,6 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import { Index, MinimongoEngine } from 'meteor/easy:search';
 
 /** Create a Meteor collection. */
 const CompanyInfo = new Mongo.Collection('CompanyInfo');
@@ -21,5 +22,11 @@ const CompanySchema = new SimpleSchema({
 /** Attach this schema to the collection. */
 CompanyInfo.attachSchema(CompanySchema);
 
+const CompanyIndex = new Index({
+  collection: CompanyInfo,
+  fields: ['companyName'],
+  engine: new MinimongoEngine(),
+});
+
 /** Make the collection and schema available to other code. */
-export { CompanyInfo, CompanySchema };
+export { CompanyInfo, CompanySchema, CompanyIndex };
