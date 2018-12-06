@@ -13,6 +13,7 @@ class StudentCard extends React.Component {
     super(props);
     this.onClick = this.onClick.bind(this);
     this.deleteCallback = this.deleteCallback.bind(this);
+    this.findRating = this.findRating.bind(this);
   }
 
   deleteCallback(error) {
@@ -30,6 +31,14 @@ class StudentCard extends React.Component {
     }
   }
 
+  findRating() {
+    let total = 0;
+    for (let i = 0; i < this.props.studentinfo.rating.length; i++) {
+      total += this.props.studentinfo.rating[i];
+    }
+    return Math.round(total / this.props.studentinfo.rating.length);
+  }
+
   render() {
     return (
         <Card raised color="blue">
@@ -41,6 +50,7 @@ class StudentCard extends React.Component {
               </div>
             </Card.Header>
             <Card.Meta>
+              <Rating icon='star' maxRating={5} defaultRating={this.findRating()} disabled/>
               <Rating icon='star' defaultRating={5} maxRating={5}></Rating>
             </Card.Meta>
             <Card.Meta>
