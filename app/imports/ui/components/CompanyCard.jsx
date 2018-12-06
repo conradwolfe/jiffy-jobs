@@ -55,7 +55,7 @@ class CompanyCard extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <Button fluid color="blue" as={ Link } to={`/cprofile/${this.props.companyinfo._id}`}>
+            <Button fluid color="blue" as={Link} to={`/cprofile/${this.props.companyinfo._id}`}>
               <div className="landing-text">
                 Visit Profile
               </div>

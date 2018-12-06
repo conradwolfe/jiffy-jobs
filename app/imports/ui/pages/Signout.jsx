@@ -11,10 +11,10 @@ export default class Signout extends React.Component {
     const divStyle = { paddingTop: '100px', paddingBottom: '150px' };
     return (
         <div>
-          <div className = "landing-background">
+          <div className="landing-background">
             <Container>
               <Header as="h2" textAlign="center">
-                <div style={divStyle} className = "landing-text">
+                <div style={divStyle} className="landing-text">
                   <p>You are signed out.</p>
                 </div>
                 <Button fluid as={NavLink} exact to="/">

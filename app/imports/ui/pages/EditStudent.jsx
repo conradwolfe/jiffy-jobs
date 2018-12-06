@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Image} from 'semantic-ui-react';
+import { Grid, Loader, Header, Image } from 'semantic-ui-react';
 import { StudentInfo, StudentSchema } from '/imports/api/studentinfo/studentinfo';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -18,7 +18,18 @@ class EditStudent extends React.Component {
   /** On successful submit, insert the data. */
   submit(data) {
     const { firstName, lastName, gradyear, description, image, interests, website, phone, _id } = data;
-    StudentInfo.update(_id, { $set: { firstName, lastName, gradyear, description, image, interests, website, phone } }, (error) => (error ?
+    StudentInfo.update(_id, {
+      $set: {
+        firstName,
+        lastName,
+        gradyear,
+        description,
+        image,
+        interests,
+        website,
+        phone
+      }
+    }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -48,7 +59,7 @@ class EditStudent extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={8}>
-                    <TextField name='phone' type='dark-text' />
+                    <TextField name='phone' type='dark-text'/>
                   </Grid.Column>
                   <Grid.Column width={8}>
                     <TextField name='website' type='dark-text'/>
@@ -57,12 +68,12 @@ class EditStudent extends React.Component {
 
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <Image src={this.props.doc.image} size='tiny' />
+                    <Image src={this.props.doc.image} size='tiny'/>
                   </Grid.Column>
                   <Grid.Column width={10}>
                     <TextField name='image' type='dark-text'/>
                     <Grid.Column width={4}>
-                      <TextField name='gradyear' type='dark-text' />
+                      <TextField name='gradyear' type='dark-text'/>
                     </Grid.Column>
                   </Grid.Column>
                 </Grid.Row>
@@ -75,11 +86,11 @@ class EditStudent extends React.Component {
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                  <SubmitField value='Submit' className='inverted'  />
+                  <SubmitField value='Submit' className='inverted'/>
                 </Grid.Row>
                 <Grid.Row>
                   <ErrorsField/>
-                  <HiddenField name='owner' />
+                  <HiddenField name='owner'/>
                 </Grid.Row>
               </Grid>
             </AutoForm>

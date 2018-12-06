@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Image} from 'semantic-ui-react';
+import { Grid, Loader, Header, Image } from 'semantic-ui-react';
 import { CompanyInfo, CompanySchema } from '/imports/api/companyinfo/companyinfo';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -18,7 +18,17 @@ class EditCompany extends React.Component {
   /** On successful submit, insert the data. */
   submit(data) {
     const { companyName, location, description, image, interests, website, phone, _id } = data;
-    CompanyInfo.update(_id, { $set: { companyName, location, description, image, interests, website, phone } }, (error) => (error ?
+    CompanyInfo.update(_id, {
+      $set: {
+        companyName,
+        location,
+        description,
+        image,
+        interests,
+        website,
+        phone
+      }
+    }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -48,7 +58,7 @@ class EditCompany extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <Grid.Column width={8}>
-                    <TextField name='phone' type='dark-text' />
+                    <TextField name='phone' type='dark-text'/>
                   </Grid.Column>
                   <Grid.Column width={8}>
                     <TextField name='website' type='dark-text'/>
@@ -57,7 +67,7 @@ class EditCompany extends React.Component {
 
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <Image src={this.props.doc.image} size='tiny' />
+                    <Image src={this.props.doc.image} size='tiny'/>
                   </Grid.Column>
                   <Grid.Column width={14}>
                     <TextField name='image' type="dark-text"/>
@@ -76,7 +86,7 @@ class EditCompany extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                   <ErrorsField/>
-                  <HiddenField name='owner' />
+                  <HiddenField name='owner'/>
                 </Grid.Row>
               </Grid>
             </AutoForm>

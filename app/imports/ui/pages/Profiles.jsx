@@ -20,7 +20,8 @@ class Profiles extends React.Component {
         <div>
           <div>
             <Container>
-                {this.props.companyinfo.map((companyinfo, index) => <StudentProfile key={index} companyinfo={companyinfo}/>)}
+              {this.props.companyinfo.map((companyinfo, index) => <StudentProfile key={index}
+                                                                                  companyinfo={companyinfo}/>)}
             </Container>
           </div>
           <StudentProfile/>

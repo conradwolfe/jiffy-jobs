@@ -6,7 +6,6 @@ import StudentCard from '/imports/ui/components/StudentCard';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 
-
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class StudentDash extends React.Component {
 
@@ -29,12 +28,12 @@ class StudentDash extends React.Component {
             <Menu text>
               <Menu.Item>
                 <Header as="h1" textAlign="center" inverted>
-                  <div className = "landing-text-dark" style={spacing}>
+                  <div className="landing-text-dark" style={spacing}>
                     Student Dashboard
                   </div>
                 </Header>
                 <Header as="h3" textAlign="center" inverted>
-                  <div className = "landing-text-gray" style={spacing}>
+                  <div className="landing-text-gray" style={spacing}>
                     Display of students looking for work
                   </div>
                 </Header>
@@ -43,19 +42,19 @@ class StudentDash extends React.Component {
           </div>
           <div className="dashboard-background">
             <Container>
-                <Card.Group centered itemsPerRow={4}>
-                  {this.props.studentinfo.map((studentinfo, index) => <StudentCard key={index}
-                                                                        studentinfo={studentinfo}/>)}
-                </Card.Group>
+              <Card.Group centered itemsPerRow={4}>
+                {this.props.studentinfo.map((studentinfo, index) => <StudentCard key={index}
+                                                                                 studentinfo={studentinfo}/>)}
+              </Card.Group>
             </Container>
           </div>
           <div className="dashboard-background">
             <footer>
               <div style={divStyle} className="ui center aligned container">
-                <Divider />
-                <div className = "login-font">
-                  Department of Information and Computer Sciences <br />
-                  University of Hawaii<br />
+                <Divider/>
+                <div className="login-font">
+                  Department of Information and Computer Sciences <br/>
+                  University of Hawaii<br/>
                   Honolulu, HI 96822
                 </div>
               </div>

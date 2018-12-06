@@ -9,10 +9,10 @@ export default class ErrorPage extends React.Component {
     const divStyle = { paddingTop: '100px', paddingBottom: '10px' };
     return (
         <div>
-          <div className = "landing-background">
+          <div className="landing-background">
             <Container>
               <Header as="h2" textAlign="center">
-                <div style={divStyle} className = "landing-text">
+                <div style={divStyle} className="landing-text">
                   <p>Wow. Such 404. Page Not Found.</p>
                 </div>
               </Header>

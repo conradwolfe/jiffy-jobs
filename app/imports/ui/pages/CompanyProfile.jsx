@@ -17,55 +17,55 @@ class CompanyProfile extends React.Component {
         <div>
           <div className="profile-page">
             <Grid>
-                <Grid.Column width={4} className='profile-column' >
+              <Grid.Column width={4} className='profile-column'>
                 <Segment>
-                <Grid.Row>
-                  <Image rounded size='medium'
-                         src={this.props.data.image}/>
-                </Grid.Row>
-                  <Divider hidden />
+                  <Grid.Row>
+                    <Image rounded size='medium'
+                           src={this.props.data.image}/>
+                  </Grid.Row>
+                  <Divider hidden/>
                   <Grid.Row>
                     <div>
-                    <Icon name='location arrow' color='blue' />
-                    {this.props.data.location}
+                      <Icon name='location arrow' color='blue'/>
+                      {this.props.data.location}
                     </div>
-                <Divider hidden />
+                    <Divider hidden/>
                   </Grid.Row>
-                <Divider hidden />
-                <Grid.Row>
-                  <Header size="huge" as='h2'>
-                    <div className="landing-text-dark">
-                      Contact Information
-                    </div>
-                  </Header>
-                  <List>
-                    <List.Item>
-                      <List.Icon name='mail' color='blue' />
-                      <List.Content>{this.props.data.owner}</List.Content>
-                    </List.Item>
+                  <Divider hidden/>
+                  <Grid.Row>
+                    <Header size="huge" as='h2'>
+                      <div className="landing-text-dark">
+                        Contact Information
+                      </div>
+                    </Header>
+                    <List>
+                      <List.Item>
+                        <List.Icon name='mail' color='blue'/>
+                        <List.Content>{this.props.data.owner}</List.Content>
+                      </List.Item>
 
-                    <List.Item>
-                      <List.Icon name='globe' color='blue' />
-                      <List.Content>{this.props.data.website}</List.Content>
-                    </List.Item>
+                      <List.Item>
+                        <List.Icon name='globe' color='blue'/>
+                        <List.Content>{this.props.data.website}</List.Content>
+                      </List.Item>
 
-                    <List.Item>
-                      <List.Icon name='phone' color='blue' />
-                      <List.Content>{this.props.data.phone}</List.Content>
-                    </List.Item>
-                  </List>
-                </Grid.Row>
-                <Divider hidden />
-                <Grid.Row>
-                  <Button as='div' labelPosition='right'>
-                    <Button basic color='blue'>
-                      <Icon name='add' />
+                      <List.Item>
+                        <List.Icon name='phone' color='blue'/>
+                        <List.Content>{this.props.data.phone}</List.Content>
+                      </List.Item>
+                    </List>
+                  </Grid.Row>
+                  <Divider hidden/>
+                  <Grid.Row>
+                    <Button as='div' labelPosition='right'>
+                      <Button basic color='blue'>
+                        <Icon name='add'/>
+                      </Button>
+                      <Label as='a' basic color='blue' pointing='left'>
+                        Add to List
+                      </Label>
                     </Button>
-                    <Label as='a' basic color='blue' pointing='left'>
-                      Add to List
-                    </Label>
-                  </Button>
-                </Grid.Row>
+                  </Grid.Row>
                 </Segment>
               </Grid.Column>
               <Grid.Column width='8' className="profile-column">
