@@ -145,9 +145,9 @@ class CompanyProfile extends React.Component {
               <Grid.Column width="3" className="profile-column">
                 <Segment circular size="huge" color='blue'>
                   <Header as='h2'>Rating</Header>
-                    <Header as='h3'>
+                  <Header as='h3'>
                     {this.findRating()}
-                    </Header>
+                  </Header>
                 </Segment>
               </Grid.Column>
             </Grid>

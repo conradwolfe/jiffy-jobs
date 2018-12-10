@@ -7,16 +7,16 @@ const StudentInfo = new Mongo.Collection('StudentInfo');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const StudentSchema = new SimpleSchema({
-    firstName: String,
-    lastName: String,
-    gradyear: String,
-    description: String,
-    image: String,
-    rating: [Number],
-    interests: String,
-    phone: String,
-    website: String,
-    owner: String,
+  firstName: String,
+  lastName: String,
+  gradyear: String,
+  description: String,
+  image: String,
+  rating: [Number],
+  interests: String,
+  phone: String,
+  website: String,
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
